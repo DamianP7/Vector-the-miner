@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilesSettings: {fileID: 11400000, guid: 5cb200e79932ed8478f3bead2dd0bcd8, type: 2}
+  spriteRenderer: {fileID: 5616643619834553702}
   spriteNumber: 0
   tileType: 1
   hardness: 1

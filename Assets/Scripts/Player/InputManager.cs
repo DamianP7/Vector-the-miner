@@ -34,41 +34,41 @@ public class InputManager : MonoBehaviour
 
 	public void UpButton()
 	{
-		PlayerMovement.Instance.MoveUp();
+		PlayerMovement.Instance.Move(Direction.Up);
 	}
 
 	public void DownButton()
 	{
-		PlayerMovement.Instance.MoveDown();
+		PlayerMovement.Instance.Move(Direction.Down);
 	}
 
 	public void LeftButton()
 	{
-		PlayerMovement.Instance.MoveLeft();
+		PlayerMovement.Instance.Move(Direction.Left);
 	}
 
 	public void RightButton()
 	{
-		PlayerMovement.Instance.MoveRight();
+		PlayerMovement.Instance.Move(Direction.Right);
 	}
 
 	public void UpperLeftButton()
 	{
-		PlayerMovement.Instance.MoveUpperLeft();
+		PlayerMovement.Instance.Move(Direction.UpLeft);
 	}
 
 	public void UpperRightButton()
 	{
-		PlayerMovement.Instance.MoveUpperRight();
+		PlayerMovement.Instance.Move(Direction.UpRight);
 	}
 
 	public void DownLeftButton()
 	{
-		PlayerMovement.Instance.MoveDownLeft();
+		PlayerMovement.Instance.Move(Direction.DownLeft);
 	}
 
 	public void DownRightButton()
 	{
-		PlayerMovement.Instance.MoveDownRight();
+		PlayerMovement.Instance.Move(Direction.DownRight);
 	}
 }

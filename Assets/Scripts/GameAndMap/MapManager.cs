@@ -57,8 +57,6 @@ public class MapManager : MonoBehaviour
 						break;
 					case TileType.Building:
 						break;
-					case TileType.Rope:
-						break;
 					case TileType.Hole:
 						sHole = tile.tileSprites.Length;
 						break;
@@ -101,8 +99,8 @@ public class MapManager : MonoBehaviour
 				tiles[i, 1] = InstantiateTile(TileType.Surface, xPos, yPos);
 			xPos += tileSize;
 		}
-		PlayerMovement.Instance.xPos = mapSizeX / 2;
-		PlayerMovement.Instance.yPos = 0;
+		PlayerController.Instance.xPos = mapSizeX / 2;
+		PlayerController.Instance.yPos = 0;
 		yPos -= tileSize;
 
 		// underground
@@ -123,6 +121,9 @@ public class MapManager : MonoBehaviour
 	{
 		float xPos;
 		float yPos = 0;
+
+		PlayerController.Instance.xPos = mapSizeX / 2;
+		PlayerController.Instance.yPos = 0;
 
 		for (int i = 0; i < tiles.GetLength(1); i++)
 		{
@@ -212,6 +213,14 @@ public class MapManager : MonoBehaviour
 
 	public TileMap GetTile(int x, int y)
 	{
-		return tiles[x, y];
+		Debug.Log("GetTile( " + x + ", " + y + ")	I'm on tile: ( " + PlayerController.Instance.xPos + ", " + PlayerController.Instance.yPos + ")");
+		if (x < 0 || y < 0 || x == tiles.GetLength(0) || y == tiles.GetLength(1))
+		{
+			TileMap tile = new TileMap();
+			tile.tileType = TileType.Locked;
+			return tile;
+		}
+		else
+			return tiles[x, y];
 	}
 }

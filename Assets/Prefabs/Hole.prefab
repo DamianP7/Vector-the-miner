@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilesSettings: {fileID: 11400000, guid: 5cb200e79932ed8478f3bead2dd0bcd8, type: 2}
+  spriteRenderer: {fileID: 5616643619834553702}
   spriteNumber: 0
-  tileType: 5
-  hardness: 1
+  tileType: 4
+  hardness: 0
 --- !u!212 &5616643619834553702
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300052, guid: 8bbacc7613b540640b8a919d4eee2905, type: 3}
+  m_Sprite: {fileID: 21300040, guid: 8bbacc7613b540640b8a919d4eee2905, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

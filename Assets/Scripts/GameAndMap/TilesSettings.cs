@@ -23,7 +23,8 @@ public class TilesSettings : ScriptableObject
 			{
 				if (tile.tileSprites.Length == 0)
 				{
-					Debug.LogError("There're no sprites (" + this.name + ')');
+					if (tile.tileType != TileType.Empty)    // TODO: temp
+						Debug.LogError("There're no sprites (" + this.name + ')');
 					return null;
 				}
 				else
