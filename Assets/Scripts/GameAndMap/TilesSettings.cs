@@ -48,6 +48,18 @@ public class TilesSettings : ScriptableObject
 		return sett;
 	}
 
+	public TileSett GetOreSettings(Ore ore)
+	{
+		TileMap tile = new TileMap();
+		TileSett sett = tiles.Find(x => x.ore == ore);
+		if (sett == null)
+		{
+			Debug.LogError("Unexpected ore type (" + ore.ToString() + ')');
+			return null;
+		}
+		return sett;
+	}
+
 
 
 
@@ -56,6 +68,7 @@ public class TilesSettings : ScriptableObject
 	{
 		[SerializeField] string name;
 		public TileType tileType;
+		public Ore ore;
 		public float hardness;
 		public Sprite[] tileSprites;
 	}

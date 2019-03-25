@@ -1,35 +1,53 @@
 fileFormatVersion: 2
-guid: c1215117e2923584a98c7ea8df080fbb
+guid: 4702d4fb5d194a744a5dac46abf366f7
 TextureImporter:
   fileIDToRecycleName:
-    21300000: surface1
-    21300002: surface2
-    21300004: surface3
-    21300006: surface4
-    21300008: surface_hole
-    21300010: surface5
-    21300012: grounds_6
-    21300014: hole1
-    21300016: hole2
-    21300018: hole3
-    21300020: hole4
-    21300022: hole5
-    21300024: grounds_12
-    21300026: grounds_13
-    21300028: ground1
-    21300030: ground2
-    21300032: ground3
-    21300034: ground4
-    21300036: ground5
-    21300038: bedrock
-    21300040: grounds_20
-    21300042: grounds_21
-    21300044: grounds_22
-    21300046: grounds_23
-    21300048: grounds_24
-    21300050: grounds_25
-    21300052: grounds_26
-    21300054: grounds_27
+    21300000: emerald_many
+    21300002: sapphire_many
+    21300004: ruby_many
+    21300006: diamond_many
+    21300008: gold_many
+    21300010: ores_5
+    21300012: emerald_med
+    21300014: sapphire_med
+    21300016: ruby_med
+    21300018: diamond_med
+    21300020: gold_med
+    21300022: ores_11
+    21300024: emerald_little
+    21300026: sapphire_little
+    21300028: ruby_little
+    21300030: diamond_little
+    21300032: gold_little
+    21300034: ores_17
+    21300036: iron_many
+    21300038: copper_many
+    21300040: lead_many
+    21300042: silver_many
+    21300044: platinium_many
+    21300046: coal_many
+    21300048: ores_24
+    21300050: iron_med
+    21300052: copper_med
+    21300054: lead_med
+    21300056: silver_med
+    21300058: platinium_med
+    21300060: coal_med
+    21300062: ores_31
+    21300064: iron_little
+    21300066: copper_little
+    21300068: lead_little
+    21300070: silver_little
+    21300072: platinium_little
+    21300074: coal_little
+    21300076: ores_38
+    21300078: ores_39
+    21300080: ores_40
+    21300082: ores_41
+    21300084: ores_42
+    21300086: ores_43
+    21300088: ores_44
+    21300090: ores_45
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -123,7 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: surface1
+      name: emerald_many
       rect:
         serializedVersion: 2
         x: 0
@@ -137,13 +155,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c1507a55466eb145a45f932c67efab7
+      spriteID: 0c594fadef2e6c84b9778c979447a414
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: surface2
+      name: sapphire_many
       rect:
         serializedVersion: 2
         x: 266
@@ -157,13 +175,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d3e2b8162bf48346b99f73ed127f2d6
+      spriteID: d50be1a66e7366f42b0f40b2d7caaad1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: surface3
+      name: ruby_many
       rect:
         serializedVersion: 2
         x: 532
@@ -177,13 +195,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf88a74b80c1aee40ab69938a070a089
+      spriteID: 1887b3de2503afa408c2e6afd729b1f4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: surface4
+      name: diamond_many
       rect:
         serializedVersion: 2
         x: 798
@@ -197,13 +215,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 180a72e4f3c17b842b2feec54bf78350
+      spriteID: 883d3b78523822c409d0192c3523d556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: surface_hole
+      name: gold_many
       rect:
         serializedVersion: 2
         x: 1064
@@ -217,13 +235,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2821701a4f209434faece6fd83d35de6
+      spriteID: da6f347b003b3744c9eaaa2786590673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: surface5
+      name: ores_5
       rect:
         serializedVersion: 2
         x: 1330
@@ -237,33 +255,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd4b4bcd3e0b1b4468e4c61dc52036af
+      spriteID: 23602196b5cf348428188e3bb08ea468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grounds_6
-      rect:
-        serializedVersion: 2
-        x: 1596
-        y: 1868
-        width: 266
-        height: 266
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a36cd9869df74694891aee35ed0028de
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hole1
+      name: emerald_med
       rect:
         serializedVersion: 2
         x: 0
@@ -277,13 +275,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a7dc8ff5bf460d43bed3edcccd5c7e4
+      spriteID: edf898b45fe501646846ccb9a2dc2828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hole2
+      name: sapphire_med
       rect:
         serializedVersion: 2
         x: 266
@@ -297,13 +295,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fa49cf266dc8714c81eb3607e14feba
+      spriteID: 3fd11d03c97720c4b9ce9695edf63eb8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hole3
+      name: ruby_med
       rect:
         serializedVersion: 2
         x: 532
@@ -317,13 +315,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5531ab46bfc9de43953dbe37e28cde3
+      spriteID: 3654aa6c69da08249a5b561a69759749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hole4
+      name: diamond_med
       rect:
         serializedVersion: 2
         x: 798
@@ -337,13 +335,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e89363aac7e409d44a21d25857e69c01
+      spriteID: 06c101ed2f8293145ab3cd080ab67fa5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hole5
+      name: gold_med
       rect:
         serializedVersion: 2
         x: 1064
@@ -357,13 +355,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 665084e56c1d4304fa0f09d0c968d48f
+      spriteID: c19d5f040ce789e479484439aee2afa8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grounds_12
+      name: ores_11
       rect:
         serializedVersion: 2
         x: 1330
@@ -377,33 +375,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1c4ce184b85c80429e4d6c968816cd3
+      spriteID: 4d5fca3355d338a44a23d36c3739bb04
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grounds_13
-      rect:
-        serializedVersion: 2
-        x: 1596
-        y: 1602
-        width: 266
-        height: 266
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de5aa5d45a1a63542afc2f063604b3ca
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ground1
+      name: emerald_little
       rect:
         serializedVersion: 2
         x: 0
@@ -417,13 +395,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cf585f68070e4e418320e6161210bb6
+      spriteID: 4c6148a3368131441a2900affadcbc5d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground2
+      name: sapphire_little
       rect:
         serializedVersion: 2
         x: 266
@@ -437,13 +415,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6b9d5d7e95bfcd4d8ae6aa90cd5121a
+      spriteID: 9ce3c1b92cfad2b4fadd04e3765444d4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground3
+      name: ruby_little
       rect:
         serializedVersion: 2
         x: 532
@@ -457,13 +435,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0f50acd25322244b888b1fb48946a3f
+      spriteID: 8c87b00c596c5c04498afe959aa420b3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground4
+      name: diamond_little
       rect:
         serializedVersion: 2
         x: 798
@@ -477,13 +455,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e108490e2b569340aaef64bc351c33f
+      spriteID: 3c6974544e5faf34d8dc3ec8d671b07c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground5
+      name: gold_little
       rect:
         serializedVersion: 2
         x: 1064
@@ -497,13 +475,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4909d025481e644ca1a81d7cc753672
+      spriteID: fd11ba0d358dfa749887ea34fcc18134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bedrock
+      name: ores_17
       rect:
         serializedVersion: 2
         x: 1330
@@ -517,33 +495,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5650fddea7bb69f4ea357aacc1f2910f
+      spriteID: 776f89c464ade2847bbbc3fec856f4a6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grounds_20
-      rect:
-        serializedVersion: 2
-        x: 1596
-        y: 1336
-        width: 266
-        height: 266
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5391f715032c3d4bafe000ee58c1586
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: grounds_21
+      name: iron_many
       rect:
         serializedVersion: 2
         x: 0
@@ -557,13 +515,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81e028b83ee940243a77312295eb4056
+      spriteID: 01149c627c873b04aa67ef56368b0bcb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grounds_22
+      name: copper_many
       rect:
         serializedVersion: 2
         x: 266
@@ -577,13 +535,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0d455e510d330745a83e49582796961
+      spriteID: cbdc63e05876a054d8c703436c66e495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grounds_23
+      name: lead_many
       rect:
         serializedVersion: 2
         x: 532
@@ -597,13 +555,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8c8a961d19bed64ea71a170c5385a09
+      spriteID: f9d3e75652a0d784697732901f7d40d3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grounds_24
+      name: silver_many
       rect:
         serializedVersion: 2
         x: 798
@@ -617,13 +575,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4eb5fab9d2a259d43a122ef75b2e2aca
+      spriteID: a06a2f5ddf553654eb3b5eebcdde7ace
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grounds_25
+      name: platinium_many
       rect:
         serializedVersion: 2
         x: 1064
@@ -637,13 +595,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a26f4c1773d5bcb49807535ff670ec09
+      spriteID: bf3b39000d64fb04bbaa68f736d6bbc7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grounds_26
+      name: coal_many
       rect:
         serializedVersion: 2
         x: 1330
@@ -657,13 +615,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9705ca527153ca40947ea0b7bb5ee8c
+      spriteID: cea52b5651357d345a76d5059c91647a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grounds_27
+      name: ores_24
       rect:
         serializedVersion: 2
         x: 1596
@@ -677,7 +635,427 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f888acf8975fd74898b77bb30bca497
+      spriteID: c1830ffff2f95c747ab843d327d2782d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iron_med
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 804
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6812db6de4fe40941830e4a2f323dc76
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: copper_med
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 804
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c64625ce976874948a841e2315c9e229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lead_med
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 804
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce7a84a1568e87448bb812c0fbce2831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silver_med
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 804
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 029cff8d73216b446a73d24615028051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinium_med
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 804
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb8e7204b34535c40bbce4256dfb1da6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_med
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 804
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdd91a5e3fd1eaf40941cebe6defcd23
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ores_31
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 804
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41855809aac9ee144b5962a1374b27d4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iron_little
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 538
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 157a1a42c4acdee40a810880413e8c3b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: copper_little
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 538
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb71471e041ca46488bf1847d389d73a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lead_little
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 538
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32d9df4f0cdabb144bbf07f4cd2db421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silver_little
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 538
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97500eb54d34349448b06de71f41bb1a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platinium_little
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 538
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65e57ef68932c7b4dbc64114c643210a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_little
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 538
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbaac120da60fca4190ee994f75a48c8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ores_38
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 538
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24a13f6a29dbd5148ab7789419884c1c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ores_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 272
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8227e8525043f7043865f9bc30f3a2b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ores_40
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 272
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cd2436f0d6d1864582a5aecb80bbcc4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ores_41
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 272
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0328952a305848a43abc6ffc47686b31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ores_42
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 272
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec50ad728e882e7468f40ad10671b0cd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ores_43
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 272
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9611ca1e86d59074faa95607ec70a0fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ores_44
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 272
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b0bbae75407cd74abad7948559f6087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ores_45
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 272
+        width: 266
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b34c56c14e056044a7c19fdbb4a3735
       vertices: []
       indices: 
       edges: []
@@ -685,7 +1063,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 38fc24f121290b146905b0ff46d3bd2a
+    spriteID: 5dc03ecfb0248d44e80f7bdf5c105437
     vertices: []
     indices: 
     edges: []

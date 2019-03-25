@@ -7,10 +7,10 @@ public class TileMap : MonoBehaviour
 	[SerializeField] TilesSettings tilesSettings;
 	[SerializeField] SpriteRenderer spriteRenderer;
 	public int spriteNumber;
-	public TileType tileType;
 	public float hardness;
-
-
+	public TileType tileType = TileType.Ground;
+	public Ore ore = Ore.Ground;
+	public int oreAmount = 0;
 
 	private void Start()
 	{
@@ -19,7 +19,15 @@ public class TileMap : MonoBehaviour
 
 	private void RefreshTile()
 	{
-		TilesSettings.TileSett tile = tilesSettings.GetTileSettings(tileType);
+		TilesSettings.TileSett tile;
+		if (ore == Ore.Ground)
+			tile = tilesSettings.GetTileSettings(tileType);
+		else
+		{
+			Debug.Log("my ore: " + ore.ToString());
+			tile = tilesSettings.GetOreSettings(ore);
+		}
+
 		hardness = tile.hardness;
 		if (spriteNumber < tile.tileSprites.Length)
 			spriteRenderer.sprite = tile.tileSprites[spriteNumber];
@@ -37,6 +45,7 @@ public class TileMap : MonoBehaviour
 		// particles
 
 		tileType = TileType.Hole;
+		ore = Ore.Ground;
 		RefreshTile();
 	}
 
@@ -60,4 +69,20 @@ public enum TileType
 	Building,
 	Hole,
 	Locked,
+}
+
+public enum Ore
+{
+	Ground,
+	Iron,
+	Copper,
+	Lead,
+	Silver,
+	Gold,
+	Platinum,
+	Ruby,
+	Sapphire,
+	Emerald,
+	Diamond,
+	Coal
 }

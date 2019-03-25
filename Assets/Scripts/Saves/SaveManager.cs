@@ -120,7 +120,7 @@ public class SaveManager : MonoBehaviour
 		TileMap[,] mapTiles = MapManager.Instance.SaveMap();
 
 		save.map = new Tile[mapTiles.GetLength(0), mapTiles.GetLength(1)];
-
+		
 		for (int i = 0; i < mapTiles.GetLength(0); i++)
 		{
 			for (int j = 0; j < mapTiles.GetLength(1); j++)

@@ -22,8 +22,7 @@ public class MapManager : MonoBehaviour
 	#endregion
 	[Header("Prefabs")]
 	[SerializeField] TileMap prefabGround;
-	[SerializeField] TileMap prefabSurface;
-	[SerializeField] TileMap prefabEmpty, prefabHole;
+	[SerializeField] TileMap prefabSurface, prefabEmpty, prefabHole, prefabBedrock, prefabOre;
 	/*
 	[Header("Sprites")]
 	[SerializeField] Sprite[] spritesGround;
@@ -31,12 +30,14 @@ public class MapManager : MonoBehaviour
 
 	[Header("Variables")]
 	public float tileSize;
-	[SerializeField] int mapSizeX, mapSizeY;
+	[SerializeField] int mapSizeX, mapSizeY, bedrockSize, surfaceLevel;
 	[SerializeField] bool forcedGenerating = false;
 	[SerializeField] TilesSettings tilesSettings;
+	[SerializeField] OresSettings oresSettings;
 	int sGround, sSurface, sHole; // sprite quantity
 
 	TileMap[,] tiles;
+	MapGenerator.TileProject[,] tileProject;
 
 
 	private void Awake()
@@ -76,43 +77,124 @@ public class MapManager : MonoBehaviour
 	#region GenerateMap
 	private void GenerateMap()
 	{
+		prefabGround.ore = Ore.Ground;
+		mapSizeX += bedrockSize * 2;
+		mapSizeY += bedrockSize;
 		tiles = new TileMap[mapSizeX, mapSizeY];
-		float xPos;
 		float yPos = 0;
 
+		SetupPlayer();
+
+		MapGenerator generator = new MapGenerator();
+		tileProject = generator.GenerateOres(mapSizeX, mapSizeY, surfaceLevel, bedrockSize, oresSettings, prefabGround);
+
 		// row above surface
-		xPos = -mapSizeX * tileSize / 2;
-		for (int i = 0; i < mapSizeX; i++)
-		{
-			tiles[i, 0] = InstantiateTile(TileType.Empty, xPos, yPos);
-			xPos += tileSize;
-		}
-		yPos -= tileSize;
+		SpawnAboveSurface(ref yPos);
 
 		// row surface
-		xPos = -mapSizeX * tileSize / 2;
-		for (int i = 0; i < mapSizeX; i++)
+		SpawnSurface(ref yPos);
+
+		// underground
+		SpawnGrounds(yPos);
+
+		//bedrock
+		SpawnBedrock();
+	}
+
+	private void SpawnGrounds(float yPos)
+	{
+		float xPos;
+
+		for (int i = surfaceLevel + 1; i < mapSizeY - bedrockSize; i++)
 		{
-			if (i == mapSizeX/2)	// TODO: temp
-				tiles[mapSizeX / 2, 1] = InstantiateTile(TileType.Hole, xPos, yPos);
+			xPos = -mapSizeX * tileSize / 2;
+			xPos += tileSize * bedrockSize;
+			for (int j = bedrockSize; j < mapSizeX - bedrockSize; j++)
+			{
+				if (tileProject[j, i] == null)
+				{
+					tiles[j, i] = InstantiateTile(TileType.Ground, xPos, yPos);
+					//Debug.Log("		Instantiate ground: " + tiles[j, i].ore.ToString());
+				}
+				else
+				{
+					prefabOre.ore = tileProject[j, i].ore;
+					prefabOre.spriteNumber = tileProject[j, i].groupSize;
+					Debug.Log("Instantiate ore: " + prefabOre.ore.ToString());
+					tiles[j, i] = InstantiateTile(prefabOre, xPos, yPos);
+				}
+
+				xPos += tileSize;
+			}
+
+			yPos -= tileSize;
+		}
+	}
+
+	private void SpawnAboveSurface(ref float yPos)
+	{
+		float xPos = -mapSizeX * tileSize / 2;
+		xPos += tileSize * bedrockSize;
+		for (int j = 0; j < surfaceLevel; j++)
+		{
+			for (int i = bedrockSize; i < mapSizeX - bedrockSize; i++)
+			{
+				tiles[i, j] = InstantiateTile(TileType.Empty, xPos, yPos);
+				xPos += tileSize;
+			}
+			yPos -= tileSize;
+		}
+	}
+
+	private void SpawnSurface(ref float yPos)
+	{
+		float xPos = -mapSizeX * tileSize / 2;
+		xPos += tileSize * bedrockSize;
+		for (int i = bedrockSize; i < mapSizeX - bedrockSize; i++)
+		{
+			if (i == mapSizeX / 2)  // TODO: temp
+				tiles[mapSizeX / 2, surfaceLevel] = InstantiateTile(TileType.Hole, xPos, yPos);
 			else
 				tiles[i, 1] = InstantiateTile(TileType.Surface, xPos, yPos);
 			xPos += tileSize;
 		}
+		yPos -= tileSize;
+	}
+
+	private void SetupPlayer()
+	{
 		PlayerController.Instance.xPos = mapSizeX / 2;
 		PlayerController.Instance.yPos = 0;
-		yPos -= tileSize;
+	}
 
-		// underground
-		for (int i = 2; i < mapSizeY; i++)
+	private void SpawnBedrock()
+	{
+		float xPos, yPos = 0;
+		for (int i = 0; i < mapSizeY - bedrockSize; i++)
+		{
+			xPos = -mapSizeX * tileSize / 2;
+			for (int j = 0; j < bedrockSize; j++)
+			{
+				tiles[j, i] = InstantiateTile(TileType.Locked, xPos, yPos);
+				xPos += tileSize;
+			}
+			xPos = (mapSizeX - 2) * tileSize / 2;
+			for (int j = mapSizeX - 1; j >= mapSizeX - bedrockSize; j--)
+			{
+				tiles[j, i] = InstantiateTile(TileType.Locked, xPos, yPos);
+				xPos -= tileSize;
+			}
+			yPos -= tileSize;
+		}
+
+		for (int i = mapSizeY - bedrockSize; i < mapSizeY; i++)
 		{
 			xPos = -mapSizeX * tileSize / 2;
 			for (int j = 0; j < mapSizeX; j++)
 			{
-				tiles[j, i] = InstantiateTile(TileType.Ground, xPos, yPos);
+				tiles[j, i] = InstantiateTile(TileType.Locked, xPos, yPos);
 				xPos += tileSize;
 			}
-
 			yPos -= tileSize;
 		}
 	}
@@ -163,6 +245,10 @@ public class MapManager : MonoBehaviour
 				prefab = prefabHole;
 				spriteNum = Random.Range(0, sHole);
 				break;
+			case TileType.Locked:
+				prefab = prefabBedrock;
+				spriteNum = 0;
+				break;
 			default:
 				prefab = prefabGround;
 				spriteNum = Random.Range(0, sGround);
@@ -178,28 +264,8 @@ public class MapManager : MonoBehaviour
 	private TileMap InstantiateTile(TileMap tile, float xPos, float yPos)
 	{
 		TileMap newTile;
-		TileMap prefab;
 
-		switch (tile.tileType)  //TODO: TileType switch
-		{
-			case TileType.Surface:
-				prefab = prefabSurface;
-				break;
-			case TileType.Ground:
-				prefab = prefabGround;
-				break;
-			case TileType.Empty:
-				prefab = prefabEmpty;
-				break;
-			case TileType.Hole:
-				prefab = prefabHole;
-				break;
-			default:
-				prefab = prefabGround;
-				Debug.LogError("Unexpected type of tile (" + this.name + ')');
-				break;
-		}
-		newTile = Instantiate(prefab, new Vector3(xPos, yPos), Quaternion.identity, this.transform) as TileMap;
+		newTile = Instantiate(tile, new Vector3(xPos, yPos), Quaternion.identity, this.transform) as TileMap;
 		newTile.tileType = tile.tileType;
 		newTile.spriteNumber = tile.spriteNumber;
 		return newTile;

@@ -1036,11 +1036,18 @@ MonoBehaviour:
     type: 3}
   prefabHole: {fileID: 1816666624266792102, guid: df33b3783d500474c98b71698ec45b6b,
     type: 3}
+  prefabBedrock: {fileID: 1816666624266792102, guid: da5dfa0cf56276f4b987190142e24ebb,
+    type: 3}
+  prefabOre: {fileID: 1816666624266792102, guid: c69ced15cde76fe4ba757eba8d42a069,
+    type: 3}
   tileSize: 2.64
-  mapSizeX: 7
-  mapSizeY: 10
-  forcedGenerating: 0
+  mapSizeX: 31
+  mapSizeY: 21
+  bedrockSize: 2
+  surfaceLevel: 1
+  forcedGenerating: 1
   tilesSettings: {fileID: 11400000, guid: 5cb200e79932ed8478f3bead2dd0bcd8, type: 2}
+  oresSettings: {fileID: 11400000, guid: c1149b8389f9df641ad2a5559a630423, type: 2}
 --- !u!4 &1013574572
 Transform:
   m_ObjectHideFlags: 0
@@ -1054,6 +1061,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1034877514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1034877516}
+  - component: {fileID: 1034877515}
+  m_Layer: 0
+  m_Name: OresSpawnHelp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1034877515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034877514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66369d442e83ff4bb9eb0c7a27cb0a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ores: {fileID: 11400000, guid: c1149b8389f9df641ad2a5559a630423, type: 2}
+  enabledAreas: 0101
+  colors:
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0.9339623, g: 0.4312687, b: 0, a: 1}
+  squareSize: 2.66
+--- !u!4 &1034877516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034877514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.133505, y: -12.31982, z: -0.1328125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1075644888
 GameObject:
@@ -1162,7 +1218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xPos: 0
   yPos: 0
-  timeToNextMove: 0.5
+  timeToNextMove: 0.3
 --- !u!212 &1105426846
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1578,7 +1634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1295446335
 RectTransform:
   m_ObjectHideFlags: 0

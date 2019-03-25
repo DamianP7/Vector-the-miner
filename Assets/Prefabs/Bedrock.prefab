@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1816666624266792102}
   - component: {fileID: 5616643619834553702}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: Bedrock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,8 +47,8 @@ MonoBehaviour:
   tilesSettings: {fileID: 11400000, guid: 5cb200e79932ed8478f3bead2dd0bcd8, type: 2}
   spriteRenderer: {fileID: 5616643619834553702}
   spriteNumber: 0
-  hardness: 1
-  tileType: 1
+  hardness: 999
+  tileType: 5
   ore: 0
   oreAmount: 0
 --- !u!212 &5616643619834553702
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300028, guid: c1215117e2923584a98c7ea8df080fbb, type: 3}
+  m_Sprite: {fileID: 21300038, guid: c1215117e2923584a98c7ea8df080fbb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
