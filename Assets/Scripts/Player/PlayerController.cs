@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour   //TODO: bez MonoBehaviour
 	{
 		Action action = GetAction(dir);
 
-		Debug.Log("Action: " + action.ToString());
 		if (action == Action.Nothing)
 			return action;
 
@@ -52,10 +51,11 @@ public class PlayerController : MonoBehaviour   //TODO: bez MonoBehaviour
 				return Action.Nothing;
 
 			case TileType.Ground:
-				// if( gracz ma wystarczająco mocny ekwipunek )
 				{
-					if (dir == Direction.Left || dir == Direction.Right || dir == Direction.Down)
+					if (dir == Direction.Left || dir == Direction.Right)
 						return Action.Dig;
+					if (dir == Direction.Down)
+						return CheckDig(Direction.Down);
 					// if ladder
 				}
 				break;
@@ -63,22 +63,32 @@ public class PlayerController : MonoBehaviour   //TODO: bez MonoBehaviour
 			case TileType.Empty:
 				if (dir == Direction.Left || dir == Direction.Right)
 					return Action.Move;
-				if (dir == Direction.Up && GetTileInDirection(Direction.Center).tileType == TileType.Hole)
+				if (dir == Direction.Up && CheckClimbing())
 					return Action.Move;
 				break;
 
 			case TileType.Building:
-				if (dir == Direction.Left || dir == Direction.Right)
+				if (dir == Direction.Left || dir == Direction.Right)    // up
 					return Action.Move;
 				break;
 
 			case TileType.Hole:
 				// jeśli jest przedmiot umozliwiający poruszanie
-				if (dir == Direction.Left || dir == Direction.Right || dir == Direction.Down || dir == Direction.Up)
+				if (dir == Direction.Left || dir == Direction.Right)
 					return Action.Move;
+				else if (dir == Direction.Down)
+				{
+					if (GetTileInDirection(Direction.Down).GetElement(ElementType.Rope) != null)
+						return Action.Move;
+				}
+				else if (dir == Direction.Up)
+				{
+					if (GetMyTile().GetElement(ElementType.Rope) != null)
+						return Action.Move;
+				}
 				if (dir == Direction.UpLeft
-					&& GetTileInDirection(Direction.Up).tileType == TileType.Hole
-					&& GetTileInDirection(Direction.Left).tileType == TileType.Ground)
+				&& GetTileInDirection(Direction.Up).tileType == TileType.Hole
+				&& GetTileInDirection(Direction.Left).tileType == TileType.Ground)
 					return Action.Climb;
 				if (dir == Direction.UpRight
 					&& GetTileInDirection(Direction.Up).tileType == TileType.Hole
@@ -100,6 +110,48 @@ public class PlayerController : MonoBehaviour   //TODO: bez MonoBehaviour
 		return Action.Nothing;
 	}
 
+	/// <summary>
+	/// Sprawdza czy można kopać w dół. Zwraca odpowiednią akcję
+	/// </summary>
+	/// <param name="dir"></param>
+	/// <returns></returns>
+	private Action CheckDig(Direction dir)
+	{
+		TileMap tile = GetTileInDirection(dir);
+
+		// dig if( gracz ma wystarczająco mocny ekwipunek )
+		if (CheckRope())
+			return Action.DigAndRope;
+		else
+			return Action.Dig;
+
+	}
+
+	/// <summary>
+	/// Zwraca true jeśli można rozwinąć linę w dół
+	/// </summary>
+	/// <returns></returns>
+	private bool CheckRope()
+	{
+		TileMap myTile = GetTileInDirection(Direction.Center);
+		Rope rope = myTile.GetElement(ElementType.Rope) as Rope;
+		if (rope == null)
+		{
+			return false;
+		}
+		if (rope.length > 0)
+		{
+			return true;
+		}
+		else
+			return false;
+	}
+
+	/// <summary>
+	/// Zwraca kafelek z podanego kierunku
+	/// </summary>
+	/// <param name="dir"></param>
+	/// <returns></returns>
 	public TileMap GetTileInDirection(Direction dir)
 	{
 		int x, y;
@@ -144,6 +196,24 @@ public class PlayerController : MonoBehaviour   //TODO: bez MonoBehaviour
 		}
 
 		return MapManager.Instance.GetTile(x, y);
+	}
+
+	/// <summary>
+	/// Sprawdza czy można sie wspinać (na razie tylko lina)
+	/// </summary>
+	/// <returns></returns>
+	private bool CheckClimbing()
+	{
+		if (GetTileInDirection(Direction.Center).tileType == TileType.Hole)
+		{
+			Element element = GetTileInDirection(Direction.Center).GetElement(ElementType.Rope);
+			if (element == null)
+				return false;
+			else
+				return true;
+		}
+		else
+			return false;
 	}
 
 	public TileMap GetMyTile()
@@ -207,5 +277,5 @@ public enum Direction
 
 public enum Action
 {
-	Move, Dig, Climb, JumpDown, Nothing, // TooLow, TooHight
+	Move, Dig, Climb, JumpDown, Nothing, DigAndRope // TooLow, TooHight
 }

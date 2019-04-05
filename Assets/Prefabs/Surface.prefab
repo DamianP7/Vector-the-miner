@@ -45,11 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilesSettings: {fileID: 11400000, guid: 5cb200e79932ed8478f3bead2dd0bcd8, type: 2}
+  itemsSettings: {fileID: 11400000, guid: 8ff35c87fc5e1e4419fb185c719be493, type: 2}
   spriteRenderer: {fileID: 5616643619834553702}
   spriteNumber: 0
   hardness: 0
   tileType: 0
   ore: 0
+  oreAmount: 0
 --- !u!212 &5616643619834553702
 SpriteRenderer:
   m_ObjectHideFlags: 0

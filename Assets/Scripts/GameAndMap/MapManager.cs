@@ -120,7 +120,6 @@ public class MapManager : MonoBehaviour
 				{
 					prefabOre.ore = tileProject[j, i].ore;
 					prefabOre.spriteNumber = tileProject[j, i].groupSize;
-					Debug.Log("Instantiate ore: " + prefabOre.ore.ToString());
 					tiles[j, i] = InstantiateTile(prefabOre, xPos, yPos);
 				}
 
@@ -153,7 +152,13 @@ public class MapManager : MonoBehaviour
 		for (int i = bedrockSize; i < mapSizeX - bedrockSize; i++)
 		{
 			if (i == mapSizeX / 2)  // TODO: temp
+			{
 				tiles[mapSizeX / 2, surfaceLevel] = InstantiateTile(TileType.Hole, xPos, yPos);
+				Rope rope = new Rope();
+				rope.length = 10;
+				rope.isLast = true;
+				tiles[mapSizeX / 2, surfaceLevel].PlaceObject(rope);
+			}
 			else
 				tiles[i, 1] = InstantiateTile(TileType.Surface, xPos, yPos);
 			xPos += tileSize;
@@ -279,7 +284,6 @@ public class MapManager : MonoBehaviour
 
 	public TileMap GetTile(int x, int y)
 	{
-		Debug.Log("GetTile( " + x + ", " + y + ")	I'm on tile: ( " + PlayerController.Instance.xPos + ", " + PlayerController.Instance.yPos + ")");
 		if (x < 0 || y < 0 || x == tiles.GetLength(0) || y == tiles.GetLength(1))
 		{
 			TileMap tile = new TileMap();

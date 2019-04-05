@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
 			return;
 
 		Action action = playerController.TryMove(dir);
+		Debug.Log(action.ToString());
 
 		if (action == Action.Nothing)
 		{
@@ -67,12 +68,28 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
+
 		if (action == Action.Dig)
 		{
 			TileMap tile = playerController.GetTileInDirection(dir);
 
 			// przekaż tile do animatora który będzie uruchamiał eventy w animacji
 			tile.Dig(); // temp
+
+		}
+
+		if (action == Action.DigAndRope)
+		{
+			Debug.Log("Rope");
+			TileMap myTile = playerController.GetMyTile();
+			TileMap tile = playerController.GetTileInDirection(dir);
+			Rope rope = myTile.GetElement(ElementType.Rope) as Rope;
+			rope.length--;
+			rope.isLast = true;
+			tile.Dig(rope); // temp
+			rope.isLast = false;
+			myTile.RefreshElements();
+			// przekaż tile do animatora który będzie uruchamiał eventy w animacji
 
 		}
 
@@ -93,21 +110,25 @@ public class PlayerMovement : MonoBehaviour
 				transform.position = new Vector3(transform.position.x, transform.position.y - tileSize);
 				break;
 			case Direction.DownLeft:
+				transform.position = new Vector3(transform.position.x - tileSize, transform.position.y - tileSize);
 				break;
 			case Direction.Left:
 				transform.position = new Vector3(transform.position.x - tileSize, transform.position.y);
 				break;
 			case Direction.UpLeft:
+				transform.position = new Vector3(transform.position.x - tileSize, transform.position.y + tileSize);
 				break;
 			case Direction.Up:
 				transform.position = new Vector3(transform.position.x, transform.position.y + tileSize);
 				break;
 			case Direction.UpRight:
+				transform.position = new Vector3(transform.position.x + tileSize, transform.position.y + tileSize);
 				break;
 			case Direction.Right:
 				transform.position = new Vector3(transform.position.x + tileSize, transform.position.y);
 				break;
 			case Direction.DownRight:
+				transform.position = new Vector3(transform.position.x + tileSize, transform.position.y - tileSize);
 				break;
 		}
 	}
