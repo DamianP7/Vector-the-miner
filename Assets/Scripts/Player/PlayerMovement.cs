@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 	public int xPos, yPos;
 
 	[SerializeField] float timeToNextMove;
+	[SerializeField] PlayerAnimations animations;
 
 	bool canMove = true;
 	float tileSize;
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
 		if (action == Action.Nothing)
 		{
+			// temp TODO: przemyśl to
 			if (dir == Direction.DownLeft)
 			{
 				action = playerController.TryMove(Direction.Left);
@@ -68,31 +70,6 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
-
-		if (action == Action.Dig)
-		{
-			TileMap tile = playerController.GetTileInDirection(dir);
-
-			// przekaż tile do animatora który będzie uruchamiał eventy w animacji
-			tile.Dig(); // temp
-
-		}
-
-		if (action == Action.DigAndRope)
-		{
-			Debug.Log("Rope");
-			TileMap myTile = playerController.GetMyTile();
-			TileMap tile = playerController.GetTileInDirection(dir);
-			Rope rope = myTile.GetElement(ElementType.Rope) as Rope;
-			rope.length--;
-			rope.isLast = true;
-			tile.Dig(rope); // temp
-			rope.isLast = false;
-			myTile.RefreshElements();
-			// przekaż tile do animatora który będzie uruchamiał eventy w animacji
-
-		}
-
 		if (action != Action.Nothing) // TODO: temp
 		{
 			MoveTransformInDirecton(dir, 1);
@@ -107,27 +84,35 @@ public class PlayerMovement : MonoBehaviour
 		switch (dir)
 		{
 			case Direction.Down:
+				animations.GoDown();
 				transform.position = new Vector3(transform.position.x, transform.position.y - tileSize);
 				break;
 			case Direction.DownLeft:
+				animations.GoLeft();
 				transform.position = new Vector3(transform.position.x - tileSize, transform.position.y - tileSize);
 				break;
 			case Direction.Left:
+				animations.GoLeft();
 				transform.position = new Vector3(transform.position.x - tileSize, transform.position.y);
 				break;
 			case Direction.UpLeft:
+				animations.GoLeft();
 				transform.position = new Vector3(transform.position.x - tileSize, transform.position.y + tileSize);
 				break;
 			case Direction.Up:
+				animations.GoUp();
 				transform.position = new Vector3(transform.position.x, transform.position.y + tileSize);
 				break;
 			case Direction.UpRight:
+				animations.GoRight();
 				transform.position = new Vector3(transform.position.x + tileSize, transform.position.y + tileSize);
 				break;
 			case Direction.Right:
+				animations.GoRight();
 				transform.position = new Vector3(transform.position.x + tileSize, transform.position.y);
 				break;
 			case Direction.DownRight:
+				animations.GoRight();
 				transform.position = new Vector3(transform.position.x + tileSize, transform.position.y - tileSize);
 				break;
 		}
@@ -186,26 +171,6 @@ public class PlayerMovement : MonoBehaviour
 			transform.position = new Vector3(transform.position.x + tileSize, transform.position.y);
 			StartCoroutine(WaitForMove());
 		}
-	}
-
-	public void MoveUpperLeft()
-	{
-		// sprawdź co możesz zrobić
-	}
-
-	public void MoveUpperRight()
-	{
-		// sprawdź co możesz zrobić
-	}
-
-	public void MoveDownLeft()
-	{
-		// sprawdź co możesz zrobić
-	}
-
-	public void MoveDownRight()
-	{
-		// sprawdź co możesz zrobić
 	}
 
 	IEnumerator WaitForMove()

@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: 5a5bf434c7df6e94ab619b042964136d
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: background_rocks_big
+    21300002: background_rocks_small
+    21300004: background_rocks_cloud
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -93,7 +96,67 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: background_rocks_big
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 3591
+        width: 989
+        height: 658
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59d3fb7c0e74cb7458fee6d9d25b755f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_rocks_small
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 3766
+        width: 521
+        height: 477
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb6fc32fe2670a6459e14b25e738bb43
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_rocks_cloud
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 3995
+        width: 458
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 285f58100cb7b87429fa75015d28b00e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

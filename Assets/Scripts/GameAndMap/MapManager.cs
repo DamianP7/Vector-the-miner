@@ -119,6 +119,7 @@ public class MapManager : MonoBehaviour
 				else
 				{
 					prefabOre.ore = tileProject[j, i].ore;
+					prefabOre.oreAmount = tileProject[j, i].amount;
 					prefabOre.spriteNumber = tileProject[j, i].groupSize;
 					tiles[j, i] = InstantiateTile(prefabOre, xPos, yPos);
 				}
@@ -156,7 +157,7 @@ public class MapManager : MonoBehaviour
 				tiles[mapSizeX / 2, surfaceLevel] = InstantiateTile(TileType.Hole, xPos, yPos);
 				Rope rope = new Rope();
 				rope.length = 10;
-				rope.isLast = true;
+				rope.isLast = false;
 				tiles[mapSizeX / 2, surfaceLevel].PlaceObject(rope);
 			}
 			else

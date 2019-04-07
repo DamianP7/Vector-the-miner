@@ -1,7 +1,9 @@
 fileFormatVersion: 2
-guid: 9e31452352a925441b66c819b09b8a81
+guid: bb76655ed5baa9e41b98f1d1a5d63bfb
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: buttonAndBar_0
+    21300002: buttonAndBar_1
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -93,11 +95,51 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: buttonAndBar_0
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 871
+        width: 955
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a15ecf65bf5ea4a908dc1c32a7d854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttonAndBar_1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 513
+        width: 270
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1e28b5dafa41fb4b93019e887addb67
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d6aaa0cc91454114bb99810acdc9df34
+    spriteID: 5ed3d2243e19f2143bae42e52444f702
     vertices: []
     indices: 
     edges: []

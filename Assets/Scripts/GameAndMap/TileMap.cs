@@ -35,6 +35,8 @@ public class TileMap : MonoBehaviour
 		hardness = tile.hardness;
 		if (spriteNumber < tile.tileSprites.Length)
 			spriteRenderer.sprite = tile.tileSprites[spriteNumber];
+		else
+			Debug.LogError("Too big spriteNumber (" + tile.ore.ToString() + ": " + spriteNumber);
 	}
 
 	public void RefreshElements()
@@ -81,6 +83,11 @@ public class TileMap : MonoBehaviour
 		elementsOnTile.Add(rope);
 		RefreshTile();
 		RefreshElements();
+	}
+
+	public void FallDown()
+	{
+
 	}
 
 	public void PlaceObject(Element element)

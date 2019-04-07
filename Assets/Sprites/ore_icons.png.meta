@@ -1,20 +1,18 @@
 fileFormatVersion: 2
-guid: 2c0fb649a0bf3e54b86de50f834d5a2a
+guid: 9483c6eba5dee1540b67cfbd0ba3f1d2
 TextureImporter:
   fileIDToRecycleName:
-    21300000: buildings_shop
-    21300002: buildings_line
-    21300004: buildings_bank
-    21300006: buildings_magazine
-    21300008: buildings_tent
-    21300010: buildings_fireplace_3
-    21300012: buildings_torch_3
-    21300014: buildings_torch_2
-    21300016: buildings_fireplace_2
-    21300018: buildings_torch_1
-    21300020: buildings_fireplace_1
-    21300022: buildings_torch_
-    21300024: buildings_fireplace
+    21300000: ore_icons_diamond
+    21300002: ore_icons_ruby
+    21300004: ore_icons_emerald
+    21300006: ore_icons_sapphire
+    21300008: ore_icons_gold
+    21300010: ore_icons_platinium
+    21300012: ore_icons_iron
+    21300014: ore_icons_copper
+    21300016: ore_icons_lead
+    21300018: ore_icons_silver
+    21300020: ore_icons_coal
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -108,133 +106,213 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buildings_shop
+      name: ore_icons_diamond
       rect:
         serializedVersion: 2
-        x: 22
-        y: 1691
-        width: 953
-        height: 420
+        x: 19
+        y: 1979
+        width: 136
+        height: 136
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9256b5e807fc7e94b9aa5d6cfe6cc6e7
+      spriteID: 46c6ba14ebf73d440b133c91fb7a576a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buildings_line
+      name: ore_icons_ruby
       rect:
         serializedVersion: 2
-        x: 1005
-        y: 1772
-        width: 809
-        height: 337
+        x: 167
+        y: 1977
+        width: 137
+        height: 136
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd0399be53bf9c94a8e414607acd4832
+      spriteID: 497b3b63c6efaa649adcd4dd05a57e71
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buildings_bank
+      name: ore_icons_emerald
       rect:
         serializedVersion: 2
-        x: 32
-        y: 1082
-        width: 593
-        height: 593
+        x: 323
+        y: 1974
+        width: 136
+        height: 136
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b195ddb509bfb24a947b46259a4c063
+      spriteID: 1677776c2bd68c54bb6e724c3a248e82
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buildings_magazine
+      name: ore_icons_sapphire
       rect:
         serializedVersion: 2
-        x: 44
-        y: 480
-        width: 574
-        height: 594
+        x: 477
+        y: 1973
+        width: 136
+        height: 136
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b29e0c6ba0507cd45847b075dd59aef9
+      spriteID: 68929c30ced9a584e83ee0b8a15beb13
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buildings_tent
+      name: ore_icons_gold
       rect:
         serializedVersion: 2
-        x: 130
-        y: 94
-        width: 400
-        height: 356
+        x: 631
+        y: 1979
+        width: 137
+        height: 136
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a658a49057111a4aba706b5e9b024e0
+      spriteID: 264a0855c0501434895717cc2c64c2e3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buildings_fireplace_3
+      name: ore_icons_platinium
       rect:
         serializedVersion: 2
-        x: 603
-        y: 313
-        width: 115
+        x: 792
+        y: 1975
+        width: 137
         height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 393a5d165a5679b48a9475f63412ebd3
+      spriteID: e4e8d5f18f21e8d418306564e929089e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buildings_torch_3
+      name: ore_icons_iron
       rect:
         serializedVersion: 2
-        x: 743
-        y: 336
-        width: 50
-        height: 69
+        x: 949
+        y: 1975
+        width: 136
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b06d3e3f793504c92ea02e4740aa8e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ore_icons_copper
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 1977
+        width: 136
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 056de91b88b1c2a4c919f8feb3eb7d04
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ore_icons_lead
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 1974
+        width: 136
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd1d3f4144624194d9e4b5f75a7b566b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ore_icons_silver
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 1978
+        width: 136
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d80620d8fd0e32468fc674872b17173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ore_icons_coal
+      rect:
+        serializedVersion: 2
+        x: 1583
+        y: 1979
+        width: 141
+        height: 135
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,127 +320,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6066fcaaf94128469a0c5ff2757a7c9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_torch_2
-      rect:
-        serializedVersion: 2
-        x: 752
-        y: 292
-        width: 34
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e01e400de3e271540b6e8d18fa3639db
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_fireplace_2
-      rect:
-        serializedVersion: 2
-        x: 616
-        y: 212
-        width: 80
-        height: 77
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42fc16287fbf20d47ba83b608a18c9d7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_torch_1
-      rect:
-        serializedVersion: 2
-        x: 759
-        y: 263
-        width: 18
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2fba4a39fcf23b46845128453bade50
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_fireplace_1
-      rect:
-        serializedVersion: 2
-        x: 636
-        y: 149
-        width: 40
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4a413a4d1055724d9b44f05c4fe85dd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_torch_
-      rect:
-        serializedVersion: 2
-        x: 756
-        y: 158
-        width: 24
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b81417fda9f87e24880f53603215e534
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buildings_fireplace
-      rect:
-        serializedVersion: 2
-        x: 586
-        y: 67
-        width: 138
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f993edd5f5101fc4e921705cfa7e1ae1
+      spriteID: b71fc5012e573234db4a1d22772b9267
       vertices: []
       indices: 
       edges: []
@@ -370,7 +328,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cec303070b291d94aa8641e1e0b5e1a0
+    spriteID: cf7d552c01dc78f48beeecf09da15948
     vertices: []
     indices: 
     edges: []

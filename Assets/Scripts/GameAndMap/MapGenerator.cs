@@ -43,6 +43,7 @@ public class MapGenerator
 	public class TileProject
 	{
 		public Ore ore;
+		public int amount;
 		public int groupSize;
 		public List<TileProject> group;
 
@@ -141,19 +142,24 @@ public class MapGenerator
 		TileProject tile = new TileProject();
 		tile.groupSize = ore.groupSize;
 		tile.ore = ore.ore;
+		tile.amount = ore.settings.oreAmount;
 		tempTiles[x, y] = tile;
 		int groupSize = Random.Range(ore.settings.minGroupSize, ore.settings.maxGroupSize + 1);
-		int check = 0;
+		int check = 0, minGroupSize = 0, rand;
 		List<int> dirs = RandomizeDir();
 		// dodaj while który w przypadku dużych grup będzie umieszczał złoża z innych pól a nie tylko z pierwszego
 		for (int i = 0; i < dirs.Count; i++)
 		{
+			rand = ore.groupSize; //Random.Range(minGroupSize, ore.groupSize + 1);
+			//if (rand == minGroupSize) minGroupSize = minGroupSize == 0 ? minGroupSize : minGroupSize - 1;
+			//else minGroupSize = minGroupSize < ore.groupSize ? minGroupSize + 1 : minGroupSize;
+
 			if (dirs[i] == 0)
 			{
 				if (tempTiles[x + 1, y] == null)
 				{
 					tempTiles[x + 1, y] = tile;
-					tempTiles[x + 1, y].groupSize = Random.Range(0, ore.groupSize + 1);
+					tempTiles[x + 1, y].groupSize = rand;
 					tempTiles[x, y].UpdateList(tempTiles[x + 1, y]);
 					tempTiles[x + 1, y].group = tempTiles[x, y].group;
 					groupSize--;
@@ -166,6 +172,7 @@ public class MapGenerator
 				if (tempTiles[x, y + 1] == null)
 				{
 					tempTiles[x, y + 1] = tile;
+					tempTiles[x, y + 1].groupSize = rand;
 					tempTiles[x, y].UpdateList(tempTiles[x, y + 1]);
 					tempTiles[x, y + 1].group = tempTiles[x, y].group;
 					groupSize--;
@@ -176,6 +183,7 @@ public class MapGenerator
 				if (tempTiles[x - 1, y] == null)
 				{
 					tempTiles[x - 1, y] = tile;
+					tempTiles[x - 1, y].groupSize = rand;
 					tempTiles[x, y].UpdateList(tempTiles[x - 1, y]);
 					tempTiles[x - 1, y].group = tempTiles[x, y].group;
 					groupSize--;
@@ -186,6 +194,7 @@ public class MapGenerator
 				if (tempTiles[x, y - 1] == null)
 				{
 					tempTiles[x, y - 1] = tile;
+					tempTiles[x, y - 1].groupSize = rand;
 					tempTiles[x, y].UpdateList(tempTiles[x, y - 1]);
 					tempTiles[x, y - 1].group = tempTiles[x, y].group;
 					groupSize--;

@@ -21,10 +21,14 @@ public class PlayerController : MonoBehaviour   //TODO: bez MonoBehaviour
 	}
 	#endregion
 
+	[SerializeField] PlayerBag playerBag;
+	[SerializeField] PlayerAnimations animations; // TODO: jeszcze nie wiem jak to zrobić. MYŚL!!
 
 	public int xPos, yPos;
 	public Direction lastDirection = Direction.Center;
 
+	// TODO: zmień PlayerController na ważniejszy. Movement ma wysłać info o chęci wykonania
+	// akcji a tutaj ma działać cała logika
 	public Action TryMove(Direction dir)
 	{
 		Action action = GetAction(dir);
@@ -32,13 +36,47 @@ public class PlayerController : MonoBehaviour   //TODO: bez MonoBehaviour
 		if (action == Action.Nothing)
 			return action;
 
+		if (action == Action.Dig)
+		{
+			TileMap tile = GetTileInDirection(dir);
 
+			// przekaż tile do animatora który będzie uruchamiał eventy w animacji
+			Dig(tile);
+
+		}
+		else if (action == Action.DigAndRope)
+		{
+			TileMap myTile = GetMyTile();
+			TileMap tile = GetTileInDirection(dir);
+			Rope rope = myTile.GetElement(ElementType.Rope) as Rope;
+			rope.length--;
+			rope.isLast = true;
+			Dig(tile, rope);
+
+			rope.isLast = false;
+			myTile.RefreshElements();
+			// przekaż tile do animatora który będzie uruchamiał eventy w animacji
+
+		}
 
 
 
 		lastDirection = dir;
 
 		return action;
+	}
+
+	void Dig(TileMap tile, Rope rope = null)
+	{
+		// Sprawdź czy jest w stanie kopać
+		if (tile.ore != Ore.Ground)
+		{
+			playerBag.AddOre(tile.ore, tile.oreAmount);
+		}
+		if (rope != null)
+			tile.Dig(rope);
+		else
+			tile.Dig();
 	}
 
 	Action GetAction(Direction dir)
@@ -86,7 +124,7 @@ public class PlayerController : MonoBehaviour   //TODO: bez MonoBehaviour
 					if (GetMyTile().GetElement(ElementType.Rope) != null)
 						return Action.Move;
 				}
-				if (dir == Direction.UpLeft
+				else if (dir == Direction.UpLeft
 				&& GetTileInDirection(Direction.Up).tileType == TileType.Hole
 				&& GetTileInDirection(Direction.Left).tileType == TileType.Ground)
 					return Action.Climb;
@@ -96,11 +134,11 @@ public class PlayerController : MonoBehaviour   //TODO: bez MonoBehaviour
 					return Action.Climb;
 				if (dir == Direction.DownLeft
 					&& GetTileInDirection(Direction.Left).tileType == TileType.Hole
-					&& GetTileInDirection(Direction.Center).tileType == TileType.Ground)
+					&& GetTileInDirection(Direction.Down).tileType == TileType.Ground)
 					return Action.JumpDown;
 				if (dir == Direction.DownRight
 					&& GetTileInDirection(Direction.Right).tileType == TileType.Hole
-					&& GetTileInDirection(Direction.Center).tileType == TileType.Ground)
+					&& GetTileInDirection(Direction.Down).tileType == TileType.Ground)
 					return Action.JumpDown;
 				break;
 
