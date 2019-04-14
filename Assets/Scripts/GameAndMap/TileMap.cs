@@ -36,7 +36,7 @@ public class TileMap : MonoBehaviour
 		if (spriteNumber < tile.tileSprites.Length)
 			spriteRenderer.sprite = tile.tileSprites[spriteNumber];
 		else
-			Debug.LogError("Too big spriteNumber (" + tile.ore.ToString() + ": " + spriteNumber);
+			Debug.LogError("Too big spriteNumber (" + transform.position + ": " + spriteNumber);
 	}
 
 	public void RefreshElements()
@@ -44,10 +44,10 @@ public class TileMap : MonoBehaviour
 		if (elementsOnTile == null)
 			return;
 
-		Rope rope = GetElement(ElementType.Rope) as Rope;
+		Rope rope = GetElement(ItemType.Rope) as Rope;
 		if (rope != null)
 		{
-			extraSpriteRenderer.sprite = itemsSettings.items.Find(x => x.type == ElementType.Rope).sprite;
+			extraSpriteRenderer.sprite = itemsSettings.items.Find(x => x.type == ItemType.Rope).sprite;
 			if (rope.isLast)
 				text.text = rope.length.ToString();
 			else
@@ -85,18 +85,25 @@ public class TileMap : MonoBehaviour
 		RefreshElements();
 	}
 
-	public void FallDown()
+	public void FallDown()	// colapse?
 	{
 
 	}
 
-	public void PlaceObject(Element element)
+	public bool PlaceObject(Element element)
 	{
 		if (elementsOnTile == null)
 			elementsOnTile = new List<Element>();
+		else if (elementsOnTile.Find(x => x.type == element.type) != null ||
+			tileType != TileType.Hole)
+		{
+			return false;
+		}
 
 		elementsOnTile.Add(element);
-		extraSpriteRenderer.sprite = itemsSettings.items.Find(x => x.type == ElementType.Rope).sprite;
+		extraSpriteRenderer.sprite = itemsSettings.items.Find(x => x.type == element.type).sprite;
+		RefreshElements();
+		return true;
 	}
 
 	public void PickUpObject()
@@ -104,7 +111,7 @@ public class TileMap : MonoBehaviour
 
 	}
 
-	public Element GetElement(ElementType type)
+	public Element GetElement(ItemType type)
 	{
 		if (elementsOnTile == null)
 			return null;

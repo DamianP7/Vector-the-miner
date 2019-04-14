@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour   //TODO: bez MonoBehaviour
 		{
 			TileMap myTile = GetMyTile();
 			TileMap tile = GetTileInDirection(dir);
-			Rope rope = myTile.GetElement(ElementType.Rope) as Rope;
+			Rope rope = myTile.GetElement(ItemType.Rope) as Rope;
 			rope.length--;
 			rope.isLast = true;
 			Dig(tile, rope);
@@ -116,12 +116,12 @@ public class PlayerController : MonoBehaviour   //TODO: bez MonoBehaviour
 					return Action.Move;
 				else if (dir == Direction.Down)
 				{
-					if (GetTileInDirection(Direction.Down).GetElement(ElementType.Rope) != null)
+					if (GetTileInDirection(Direction.Down).GetElement(ItemType.Rope) != null)
 						return Action.Move;
 				}
 				else if (dir == Direction.Up)
 				{
-					if (GetMyTile().GetElement(ElementType.Rope) != null)
+					if (GetMyTile().GetElement(ItemType.Rope) != null)
 						return Action.Move;
 				}
 				else if (dir == Direction.UpLeft
@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour   //TODO: bez MonoBehaviour
 	private bool CheckRope()
 	{
 		TileMap myTile = GetTileInDirection(Direction.Center);
-		Rope rope = myTile.GetElement(ElementType.Rope) as Rope;
+		Rope rope = myTile.GetElement(ItemType.Rope) as Rope;
 		if (rope == null)
 		{
 			return false;
@@ -244,7 +244,7 @@ public class PlayerController : MonoBehaviour   //TODO: bez MonoBehaviour
 	{
 		if (GetTileInDirection(Direction.Center).tileType == TileType.Hole)
 		{
-			Element element = GetTileInDirection(Direction.Center).GetElement(ElementType.Rope);
+			Element element = GetTileInDirection(Direction.Center).GetElement(ItemType.Rope);
 			if (element == null)
 				return false;
 			else

@@ -294,4 +294,61 @@ public class MapManager : MonoBehaviour
 		else
 			return tiles[x, y];
 	}
+
+	public Vector2 CheckAndGetPosition(Vector2 position)
+	{
+		float y = (position.y - tileSize / 2) / tileSize;
+		int yPos = Mathf.FloorToInt(y) * -1;
+
+		float x = position.x / tileSize;
+		x += Mathf.FloorToInt(mapSizeX / 2);
+		int xPos = Mathf.FloorToInt(x);
+
+		if (yPos < 0)
+		{
+			xPos++;
+			yPos *= -1;
+			float xTran = tiles[xPos, 0].transform.position.x;
+			float yTran = tiles[xPos, 0].transform.position.y + yPos * tileSize;
+			return new Vector2(xTran, yTran);
+		}
+		else
+		{
+			xPos++; yPos--; // Magic code
+			return tiles[xPos, yPos].transform.position;
+		}
+	}
+
+	public TileMap GetTileAtPosition(Vector2 position)
+	{
+
+		float y = (position.y - tileSize / 2) / tileSize;
+		int yPos = Mathf.FloorToInt(y) * -1;
+
+		float x = position.x / tileSize;
+		x += Mathf.FloorToInt(mapSizeX / 2);
+		int xPos = Mathf.FloorToInt(x);
+		Debug.Log(xPos + ", " + yPos);
+
+		if (yPos < 0)
+		{
+			return null;
+		}
+		else
+		{
+			xPos++; yPos--; // Magic code
+			return tiles[xPos, yPos];
+		}
+	}
+
+	public bool PlaceItem(Vector2 position, Element item)
+	{
+		TileMap tile = GetTileAtPosition(position);
+		if (tile == null)
+			return false;
+		else
+		{
+			return tile.PlaceObject(item);
+		}
+	}
 }

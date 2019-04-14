@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OreInBag
+public class ItemInBag : MonoBehaviour
 {
-	public Ore ore;
+	public ItemType item; 
 	public int quantity;
 }

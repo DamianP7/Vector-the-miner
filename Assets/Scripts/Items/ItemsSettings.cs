@@ -11,6 +11,6 @@ public class ItemsSettings : ScriptableObject
 [System.Serializable]
 public class ItemOnList
 {
-	public ElementType type;
+	public ItemType type;
 	public Sprite sprite;
 }

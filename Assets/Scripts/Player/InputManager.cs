@@ -4,71 +4,109 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+	#region Instance
+	private static InputManager instance;
+	public static InputManager Instance
+	{
+		get
+		{
+			if (instance == null)
+			{
+				instance = GameObject.FindObjectOfType<InputManager>();
+				if (instance == null)
+					Debug.LogError("No InputManager found on the scene!");
+			}
+			return instance;
+		}
+	}
+	#endregion
+	public delegate void DirDelegate(Direction dir);
+	DirDelegate MoveToDirection;
+
+	private void Start()
+	{
+		ChangeToPlayerMovement();
+	}
+
+	public void ChangeToPlayerMovement()
+	{
+		MoveToDirection = new DirDelegate(PlayerMovement.Instance.Move);
+	}
+
+	public void ChangeToThisMovement(DirDelegate dirDelegate)
+	{
+		MoveToDirection = new DirDelegate(dirDelegate);
+	}
+
+	public void StopMovement()
+	{
+		MoveToDirection = null;
+	}
 
 	private void Update()
 	{
 		if (Input.GetAxis("Horizontal") > 0.5f) // left right
 		{
 			if (Input.GetAxis("Vertical") > 0.5f)
-				UpperRightButton();
+				MoveToDirection(Direction.UpRight);
 			else if (Input.GetAxis("Vertical") < -0.5f)
-				DownRightButton();
+				MoveToDirection(Direction.DownRight);
 			else
-				RightButton();
+				MoveToDirection(Direction.Right);
 		}
 		else if (Input.GetAxis("Horizontal") < -0.5f)  // left right
 		{
 			if (Input.GetAxis("Vertical") > 0.5f)
-				UpperLeftButton();
+				MoveToDirection(Direction.UpLeft);
 			else if (Input.GetAxis("Vertical") < -0.5f)
-				DownLeftButton();
+				MoveToDirection(Direction.DownLeft);
 			else
-				LeftButton();
+				MoveToDirection(Direction.Left);
 		}
 		else if (Input.GetAxis("Vertical") > 0.5f)
-			UpButton();
+			MoveToDirection(Direction.Up);
 		else if (Input.GetAxis("Vertical") < -0.5f)
-			DownButton();
+			MoveToDirection(Direction.Down);
 	}
 
 
 	public void UpButton()
 	{
-		PlayerMovement.Instance.Move(Direction.Up);
+		MoveToDirection(Direction.Up);
 	}
 
 	public void DownButton()
 	{
-		PlayerMovement.Instance.Move(Direction.Down);
+		MoveToDirection(Direction.Down);
 	}
 
 	public void LeftButton()
 	{
-		PlayerMovement.Instance.Move(Direction.Left);
+		MoveToDirection(Direction.Left);
 	}
 
 	public void RightButton()
 	{
-		PlayerMovement.Instance.Move(Direction.Right);
+		MoveToDirection(Direction.Right);
 	}
 
 	public void UpperLeftButton()
 	{
-		PlayerMovement.Instance.Move(Direction.UpLeft);
+		MoveToDirection(Direction.UpLeft);
 	}
 
 	public void UpperRightButton()
 	{
-		PlayerMovement.Instance.Move(Direction.UpRight);
+		MoveToDirection(Direction.UpRight);
 	}
 
 	public void DownLeftButton()
 	{
-		PlayerMovement.Instance.Move(Direction.DownLeft);
+		MoveToDirection(Direction.DownLeft);
 	}
 
 	public void DownRightButton()
 	{
-		PlayerMovement.Instance.Move(Direction.DownRight);
+		MoveToDirection(Direction.DownRight);
 	}
 }

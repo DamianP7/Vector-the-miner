@@ -8,13 +8,13 @@ public class Element
 	public string itemName;
 	public Direction[] directionsToMove;
 	public Sprite sprite;
-	public ElementType type;
+	public ItemType type;
 
 
 
 }
 
-public enum ElementType
+public enum ItemType
 {
-	Rope,
+	Rope, Torch, Support
 }

@@ -21,9 +21,6 @@ public class PlayerMovement : MonoBehaviour
 	}
 	#endregion
 
-
-	public int xPos, yPos;
-
 	[SerializeField] float timeToNextMove;
 	[SerializeField] PlayerAnimations animations;
 
@@ -115,61 +112,6 @@ public class PlayerMovement : MonoBehaviour
 				animations.GoRight();
 				transform.position = new Vector3(transform.position.x + tileSize, transform.position.y - tileSize);
 				break;
-		}
-	}
-
-	public void MoveUp()
-	{
-		if (canMove)
-		{
-			Action action = playerController.TryMove(Direction.Up);
-			if (action == Action.Move)
-			{
-				transform.position = new Vector3(transform.position.x, transform.position.y + tileSize);
-				StartCoroutine(WaitForMove());
-			}
-			if (action == Action.Dig)
-			{
-				transform.position = new Vector3(transform.position.x, transform.position.y + tileSize);
-				StartCoroutine(WaitForMove());
-			}
-			if (action == Action.Climb)
-			{
-				transform.position = new Vector3(transform.position.x, transform.position.y + tileSize);
-				StartCoroutine(WaitForMove());
-			}
-			if (action == Action.JumpDown)
-			{
-				transform.position = new Vector3(transform.position.x, transform.position.y + tileSize);
-				StartCoroutine(WaitForMove());
-			}
-		}
-	}
-
-	public void MoveDown()
-	{
-		if (canMove)
-		{
-			transform.position = new Vector3(transform.position.x, transform.position.y - tileSize);
-			StartCoroutine(WaitForMove());
-		}
-	}
-
-	public void MoveLeft()
-	{
-		if (canMove)
-		{
-			transform.position = new Vector3(transform.position.x - tileSize, transform.position.y);
-			StartCoroutine(WaitForMove());
-		}
-	}
-
-	public void MoveRight()
-	{
-		if (canMove)
-		{
-			transform.position = new Vector3(transform.position.x + tileSize, transform.position.y);
-			StartCoroutine(WaitForMove());
 		}
 	}
 

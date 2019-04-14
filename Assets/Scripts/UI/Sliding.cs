@@ -19,12 +19,12 @@ public class Sliding : MonoBehaviour
 		if (direction == Direction.Down)
 		{
 			hiddenPosition = panel.anchoredPosition.y;
-			shownPosition = hiddenPosition - panel.sizeDelta.y;
+			shownPosition = hiddenPosition - panel.rect.height;
 		}
 		else if (direction == Direction.Up)
 		{
 			hiddenPosition = panel.anchoredPosition.y;
-			shownPosition = hiddenPosition + panel.sizeDelta.y;
+			shownPosition = hiddenPosition + panel.rect.height;
 		}
 		else if (direction == Direction.Left)
 		{
@@ -118,6 +118,15 @@ public class Sliding : MonoBehaviour
 		opened = !opened;
 	}
 
+	public void OpenPanel()
+	{
+		opened = true;
+	}
+
+	public void ClosePanel()
+	{
+		opened = false;
+	}
 
 	enum Direction
 	{

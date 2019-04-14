@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OreInBag
+public class Torch : Element
 {
-	public Ore ore;
-	public int quantity;
+
+
+
 }
