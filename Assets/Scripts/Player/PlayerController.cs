@@ -20,12 +20,33 @@ public class PlayerController : MonoBehaviour   //TODO: bez MonoBehaviour
 		}
 	}
 	#endregion
+	
+	[Header("Variables")]
+	[SerializeField] int maxCapacity;
 
-	[SerializeField] PlayerBag playerBag;
+	[Header("UI elements")]
+	[SerializeField] BagUI bagUI;
+	[SerializeField] InventoryUI inventoryUI;
+
+	[Header("Misc.")]
 	[SerializeField] PlayerAnimations animations; // TODO: jeszcze nie wiem jak to zrobić. MYŚL!!
+
+	PlayerBag playerBag;
+	public PlayerInventory playerInventory;
 
 	public int xPos, yPos;
 	public Direction lastDirection = Direction.Center;
+
+	private void Awake()
+	{
+		NewGame();
+	}
+
+	public void NewGame()
+	{
+		playerBag = new PlayerBag(bagUI, maxCapacity);
+		playerInventory = new PlayerInventory(inventoryUI);
+	}
 
 	// TODO: zmień PlayerController na ważniejszy. Movement ma wysłać info o chęci wykonania
 	// akcji a tutaj ma działać cała logika

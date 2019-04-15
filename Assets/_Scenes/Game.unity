@@ -3159,7 +3159,7 @@ SpriteRenderer:
   m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300010, guid: 9e31452352a925441b66c819b09b8a81, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.73333335}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3746,9 +3746,7 @@ GameObject:
   - component: {fileID: 1105426846}
   - component: {fileID: 1105426845}
   - component: {fileID: 1105426844}
-  - component: {fileID: 1105426848}
   - component: {fileID: 1105426847}
-  - component: {fileID: 1105426849}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3782,7 +3780,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3a2f2a234477b4880c38be60723da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBag: {fileID: 1105426848}
+  maxCapacity: 30
+  bagUI: {fileID: 602869126}
+  inventoryUI: {fileID: 745062691}
   animations: {fileID: 1105426847}
   xPos: 0
   yPos: 0
@@ -3866,34 +3866,6 @@ MonoBehaviour:
   front: {fileID: 21300000, guid: 7aa050f3320645b47bcd97dc378f246b, type: 3}
   back: {fileID: 21300002, guid: 7aa050f3320645b47bcd97dc378f246b, type: 3}
   renderer: {fileID: 1105426846}
---- !u!114 &1105426848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1105426842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea91d76ae063ff469a55d339ea1d4fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bagUI: {fileID: 602869126}
-  maxCapacity: 30
-  spaceLeft: 0
---- !u!114 &1105426849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1105426842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd39cb8d1cb18c6498bcf30b8f58f140, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InventoryUI: {fileID: 745062691}
 --- !u!1 &1128940305
 GameObject:
   m_ObjectHideFlags: 0
@@ -4590,7 +4562,7 @@ SpriteRenderer:
   m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300016, guid: 9e31452352a925441b66c819b09b8a81, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.73333335}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5350,7 +5322,7 @@ SpriteRenderer:
   m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300016, guid: 9e31452352a925441b66c819b09b8a81, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.73333335}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

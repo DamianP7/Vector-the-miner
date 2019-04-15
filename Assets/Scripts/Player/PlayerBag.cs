@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBag : MonoBehaviour
+public class PlayerBag
 {
-	[SerializeField] BagUI bagUI;
+	BagUI bagUI;
 
-	[SerializeField] int maxCapacity, spaceLeft;
+	int maxCapacity, spaceLeft;
 
 	List<OreInBag> ores;
 
-	private void Awake()
+	public PlayerBag(BagUI bagUI, int maxCapacity)
 	{
+		this.bagUI = bagUI;
+		this.maxCapacity = maxCapacity;
 		spaceLeft = maxCapacity;
 		ores = new List<OreInBag>();
 		UpdateBag();
@@ -92,5 +94,11 @@ public class PlayerBag : MonoBehaviour
 			bagUI.UpdateBag(spaceLeft, maxCapacity);
 		else
 			bagUI.UpdateBag(spaceLeft, maxCapacity, ores);
+	}
+
+	public void LoadBag(List<OreInBag> ores)
+	{
+		this.ores = ores;
+		//TOOD: count left space
 	}
 }

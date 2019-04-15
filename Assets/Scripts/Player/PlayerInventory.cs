@@ -2,29 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public class PlayerInventory
 {
-	#region Instance
-	private static PlayerInventory instance;
-	public static PlayerInventory Instance
-	{
-		get
-		{
-			if (instance == null)
-			{
-				instance = GameObject.FindObjectOfType<PlayerInventory>();
-				if (instance == null)
-					Debug.LogError("No PlayerInventory found on the scene!");
-			}
-			return instance;
-		}
-	}
-	#endregion
-	[SerializeField] InventoryUI InventoryUI;
+	InventoryUI inventoryUI;
 
 	List<ItemInBag> items;
 
-	private void Awake()
+	public PlayerInventory(InventoryUI inventoryUI)
+	{
+		this.inventoryUI = inventoryUI;
+		StartItems();
+	}
+
+	private void StartItems()
 	{
 		items = new List<ItemInBag>();
 		ItemInBag startItem = new ItemInBag();
@@ -94,8 +84,8 @@ public class PlayerInventory : MonoBehaviour
 	private void UpdateInventory()
 	{
 		if (items.Count == 0)
-			InventoryUI.UpdateInventory();
+			inventoryUI.UpdateInventory();
 		else
-			InventoryUI.UpdateInventory(items);
+			inventoryUI.UpdateInventory(items);
 	}
 }

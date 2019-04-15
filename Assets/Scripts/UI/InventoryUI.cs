@@ -64,7 +64,7 @@ public class InventoryUI : MonoBehaviour
 		element.type = item.item;
 		element.sprite = icons.Find(x => x.item == item.item).sprite;
 		itemToPlace.SpawnItem(element);
-		PlayerInventory.Instance.TakeItem(item.item);
+		PlayerController.Instance.playerInventory.TakeItem(item.item);
 	}
 
 	[System.Serializable]
