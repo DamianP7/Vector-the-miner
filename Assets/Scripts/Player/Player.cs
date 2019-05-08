@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,10 +31,12 @@ public class Player : MonoBehaviour
     [SerializeField] BagUI bagUI;
     [SerializeField] InventoryUI inventoryUI;
     [SerializeField] Text cashText;
+    [SerializeField] Text batteryText;
     [SerializeField] RectTransform batteryBar;
 
     [Header("Misc.")]
     [SerializeField] PlayerAnimations playerAnimations; // TODO: jeszcze nie wiem jak to zrobić. MYŚL!!
+    [SerializeField] EnergyCosts energyCosts; // TODO: jeszcze nie wiem jak to zrobić. MYŚL!!
 
     public PlayerBag bag;
     public PlayerInventory inventory;
@@ -57,18 +60,23 @@ public class Player : MonoBehaviour
     }
 
     private void Awake()
-	{
-		NewGame();
-	}
+    {
+        NewGame();
+    }
 
-	public void NewGame()
-	{
-		controller = new PlayerController();
-		stats = new PlayerStats(cashText, batteryBar);
-		bag = new PlayerBag(bagUI, maxBagCapacity);
-		inventory = new PlayerInventory(inventoryUI);
+    public void NewGame()
+    {
+        stats = new PlayerStats(energyCosts, cashText, batteryText, batteryBar);
+        controller = new PlayerController();
+        bag = new PlayerBag(bagUI, maxBagCapacity);
+        inventory = new PlayerInventory(inventoryUI);
         movement = new PlayerMovement(playerAnimations);
-	}
+    }
+
+    internal void Coroutine(IEnumerator enumerable)
+    {
+        StartCoroutine(enumerable);
+    }
 
     public void WaitForMove()
     {
@@ -93,7 +101,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(time);
         canMove = true;
     }
-    
+
 }
 
 

@@ -6,12 +6,19 @@ public class PlayerController
 {
     public int xPos = 0, yPos = 0;
 
-    public void Move(Direction dir)
+    PlayerStats playerStats;
+
+    public PlayerController()
+    {
+        playerStats = Player.Instance.stats;
+    }
+
+    public void TryMove(Direction dir)
     {
         if (!Player.Instance.canMove)
             return;
 
-        Action action = TryMove(dir);
+        Action action = DoMove(dir);
         Debug.Log(action.ToString());
 
         if (action == Action.Nothing)
@@ -19,69 +26,70 @@ public class PlayerController
             // temp TODO: przemyśl to
             if (dir == Direction.DownLeft)
             {
-                action = TryMove(Direction.Left);
+                action = DoMove(Direction.Left);
                 dir = Direction.Left;
             }
             else if (dir == Direction.UpLeft)
             {
-                action = TryMove(Direction.Left);
+                action = DoMove(Direction.Left);
                 dir = Direction.Left;
             }
             else if (dir == Direction.DownRight)
             {
-                action = TryMove(Direction.Right);
+                action = DoMove(Direction.Right);
                 dir = Direction.Right;
             }
             else if (dir == Direction.UpRight)
             {
-                action = TryMove(Direction.Right);
+                action = DoMove(Direction.Right);
                 dir = Direction.Right;
             }
         }
-
-        if (action != Action.Nothing) // TODO: temp
-        {
-            Player.Instance.movement.MoveTransformInDirecton(dir, 1);
-            MovePos(dir); // zakończenie ruchu i update pozycji gracza na siatce
-        }
-
+        
         Player.Instance.WaitForMove();
+
     }
 
-    public Action TryMove(Direction dir)
+    public Action DoMove(Direction dir)
     {
         Action action = GetAction(dir);
-        TileMap tile;
+
+        if (!playerStats.CheckAction(action))
+            return Action.Nothing;
 
         switch (action)
         {
             case Action.Move:
+                Move(dir, Action.Move); // contains Move()
                 return action;
                 break;
 
             case Action.Dig:
-               tile = GetTileInDirection(dir);
 
                 // przekaż tile do animatora który będzie uruchamiał eventy w animacji
-                Dig(tile);
+                Dig(dir);
                 break;
 
             case Action.Climb:
+                Move(dir, Action.Move);
                 break;
 
             case Action.JumpDown:
+                Move(dir, Action.Move);
                 break;
 
             case Action.Nothing:
+                Move(dir, Action.Move);
                 break;
 
             case Action.DigAndRope:
+
                 TileMap myTile = GetMyTile();
-                tile = GetTileInDirection(dir);
                 Rope rope = myTile.GetElement(ItemType.Rope) as Rope;
                 rope.length--;
                 rope.isLast = true;
-                Dig(tile, rope);
+
+                Dig(dir, rope); // contains Move()
 
                 rope.isLast = false;
                 myTile.RefreshElements();
@@ -89,22 +97,40 @@ public class PlayerController
 
                 break;
         }
-        
+
 
         return action;
     }
 
-    void Dig(TileMap tile, Rope rope = null)
+    void Move(Direction dir, Action action)
     {
+        if (playerStats.DoAction(action))
+        {
+            Player.Instance.movement.MoveTransformInDirecton(dir, 1);
+            MovePos(dir); // zakończenie ruchu i update pozycji gracza na siatce
+        }
+    }
+
+    void Dig(Direction dir, Rope rope = null)
+    {
+        TileMap tile = GetTileInDirection(dir);
+
         // Sprawdź czy jest w stanie kopać
         if (tile.ore != Ore.Ground)
         {
             Player.Instance.bag.AddOre(tile.ore, tile.oreAmount);
         }
         if (rope != null)
+        {
             tile.Dig(rope);
+            Move(dir, Action.DigAndRope);
+        }
         else
+        {
             tile.Dig();
+            Move(dir, Action.DigAndRope);
+        }
+
     }
 
     Action GetAction(Direction dir)

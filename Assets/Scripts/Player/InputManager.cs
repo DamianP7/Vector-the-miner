@@ -33,7 +33,7 @@ public class InputManager : MonoBehaviour
 	public void ChangeToPlayerMovement()
 	{
 		StartMovement();
-		MoveToDirection = new DirDelegate(Player.Instance.controller.Move);
+		MoveToDirection = new DirDelegate(Player.Instance.controller.TryMove);
 	}
 
 	public void ChangeToThisMovement(DirDelegate dirDelegate)
