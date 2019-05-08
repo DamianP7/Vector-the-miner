@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerBag
 {
-	BagUI bagUI;
+    [SerializeField]
+    BagUI bagUI;
 
 	int maxCapacity, spaceLeft;
 
@@ -64,21 +65,29 @@ public class PlayerBag
 		return temp;
 	}
 
-	public int TakeOre(Ore ore)
+	public int TakeOre(Ore ore, int quantity = 1)
 	{
 		int index = ores.FindIndex(x => x.ore == ore);
-		int am;
 		if (index != -1)
 		{
-			am = ores[index].quantity;
-			ores.RemoveAt(index);
+			if (ores[index].quantity == quantity)
+				ores.RemoveAt(index);
+			else if (ores[index].quantity < quantity)
+			{
+				quantity = ores[index].quantity;
+				ores.RemoveAt(index);
+			}
+			else
+				ores[index].quantity -= quantity;
 		}
 		else
-			am = 0;
+			quantity = 0;
 
-		spaceLeft += am;
+		spaceLeft += quantity;
 
-		return am;
+        UpdateBag();
+
+        return quantity;
 	}
 
 	public void ClearBag()

@@ -1,16 +1,30 @@
 fileFormatVersion: 2
 guid: c3eb9d42f071adb4a8bc3bd3b7600c6b
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: rope
-    21300002: torch
-    21300004: support
-    21300006: items_3
-    21300008: items_4
-    21300010: items_5
-    21300012: items_6
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: rope
+  - first:
+      213: 21300002
+    second: torch
+  - first:
+      213: 21300004
+    second: support
+  - first:
+      213: 21300006
+    second: ladder
+  - first:
+      213: 21300008
+    second: items_4
+  - first:
+      213: 21300010
+    second: items_5
+  - first:
+      213: 21300012
+    second: items_6
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -117,6 +131,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: eb68c25729916924f9ea611ec26a2ef3
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -137,6 +152,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1cf8a53c3fe3b7a4cae8fe6766a0d2e2
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -157,12 +173,13 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1dab9f2d125d06e4a8b64e055027b6f1
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: items_3
+      name: ladder
       rect:
         serializedVersion: 2
         x: 798
@@ -177,6 +194,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 81455da92079edc48bfabf249385d172
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -197,6 +215,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 0d5e6355b4063b049bb65b32bb9313ab
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
@@ -217,6 +236,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c8f73e56a566b2e439904b80d98b123b
+      internalID: 21300010
       vertices: []
       indices: 
       edges: []
@@ -237,6 +257,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 802e065114787c5499339835a9ac126c
+      internalID: 21300012
       vertices: []
       indices: 
       edges: []
@@ -245,10 +266,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: c8725b6d3c922924e8769a24a37472f4
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

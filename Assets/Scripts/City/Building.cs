@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("Building Settings", order = -1)]
+    [SerializeField] protected VoidDelegate buildingAction;
+    [SerializeField] protected string buildingText;
+
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        Debug.Log("Trigger");
+        if (collision.tag == "Player")
+            CenterButton.Instance.AddAction(buildingAction, buildingText);
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void OnTriggerExit2D(Collider2D collision)
     {
-        
+        if (collision.tag == "Player")
+            CenterButton.Instance.RemoveAllActions();
     }
 }

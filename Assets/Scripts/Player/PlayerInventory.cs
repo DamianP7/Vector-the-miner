@@ -21,11 +21,15 @@ public class PlayerInventory
 		startItem.item = ItemType.Support;
 		startItem.quantity = 2;
 		items.Add(startItem);
-		startItem = new ItemInBag();
-		startItem.item = ItemType.Torch;
-		startItem.quantity = 5;
-		items.Add(startItem);
-		UpdateInventory();
+        startItem = new ItemInBag();
+        startItem.item = ItemType.Torch;
+        startItem.quantity = 5;
+        items.Add(startItem);
+        startItem = new ItemInBag();
+        startItem.item = ItemType.Ladder;
+        startItem.quantity = 12;
+        items.Add(startItem);
+        UpdateInventory();
 	}
 
 	public void AddItem(ItemType item, int quantity = 1)

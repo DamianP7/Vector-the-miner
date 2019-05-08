@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class GeneralStore : Building
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] ItemsSettings itemsSettings;
+    [SerializeField] ItemsPrices itemsPrices;
+
+    PlayerStats playerStats;
+    PlayerInventory playerInventory;
+
+    private void Awake()
     {
-        
+        buildingAction = OpenWindow;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        playerStats = Player.Instance.stats;
+        playerInventory = Player.Instance.inventory;
+    }
+
+    public void OpenWindow()
+    {
+        GameWindows.WindowsController.Instance.ShowWindow(
+            GameWindows.WindowsController.Instance.generalStoreWindow);
+        InputManager.Instance.StopMovement();
+    }
+
+    public void BuyItem(ItemType item, int price, int quantity = 1)
+    {
+        int cost = price * quantity;
+        playerStats.Cash -= cost;
+        playerInventory.AddItem(item, quantity);
+    }
+
+    public int GetPrice(ItemType item)
+    {
+        return itemsPrices.itemsPrices.Find(x => x.item == item).price;
     }
 }

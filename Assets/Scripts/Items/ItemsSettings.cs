@@ -13,4 +13,5 @@ public class ItemOnList
 {
 	public ItemType type;
 	public Sprite sprite;
+	public Sprite icon;
 }

@@ -94,7 +94,7 @@ public class ItemToPlace : MonoBehaviour
 		this.item = item;
 		spriteRenderer.sprite = item.sprite;
 
-		Vector3 pos = PlayerController.Instance.transform.position;
+		Vector3 pos = Player.Instance.transform.position;
 		transform.position = new Vector3(pos.x, pos.y + MapManager.Instance.tileSize);
 	}
 

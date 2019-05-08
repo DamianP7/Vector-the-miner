@@ -23,6 +23,8 @@ public class InputManager : MonoBehaviour
 	public delegate void DirDelegate(Direction dir);
 	DirDelegate MoveToDirection;
 
+	[SerializeField] GameObject buttons;
+
 	private void Start()
 	{
 		ChangeToPlayerMovement();
@@ -30,17 +32,23 @@ public class InputManager : MonoBehaviour
 
 	public void ChangeToPlayerMovement()
 	{
-		MoveToDirection = new DirDelegate(PlayerMovement.Instance.Move);
+		StartMovement();
+		MoveToDirection = new DirDelegate(Player.Instance.controller.Move);
 	}
 
 	public void ChangeToThisMovement(DirDelegate dirDelegate)
 	{
+		StartMovement();
 		MoveToDirection = new DirDelegate(dirDelegate);
 	}
 
 	public void StopMovement()
 	{
-		MoveToDirection = null;
+		buttons.SetActive(false);
+	}
+	public void StartMovement()
+	{
+		buttons.SetActive(true);
 	}
 
 	private void Update()

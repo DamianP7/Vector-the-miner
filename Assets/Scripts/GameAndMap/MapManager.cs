@@ -169,8 +169,9 @@ public class MapManager : MonoBehaviour
 
 	private void SetupPlayer()
 	{
-		PlayerController.Instance.xPos = mapSizeX / 2;
-		PlayerController.Instance.yPos = 0;
+		Player.Instance.bag.AddOre(Ore.Coal);
+		Player.Instance.controller.xPos = mapSizeX / 2;
+		Player.Instance.controller.yPos = 0;
 	}
 
 	private void SpawnBedrock()
@@ -210,8 +211,8 @@ public class MapManager : MonoBehaviour
 		float xPos;
 		float yPos = 0;
 
-		PlayerController.Instance.xPos = mapSizeX / 2;
-		PlayerController.Instance.yPos = 0;
+		Player.Instance.controller.xPos = mapSizeX / 2;
+		Player.Instance.controller.yPos = 0;
 
 		for (int i = 0; i < tiles.GetLength(1); i++)
 		{

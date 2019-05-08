@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sliding : MonoBehaviour
+public class SlidingPanel : MonoBehaviour
 {
 	[SerializeField] RectTransform panel;	// panel, ktorym chcesz poruszac
 	[SerializeField] Direction direction;	// kierunek wysuwania panelu

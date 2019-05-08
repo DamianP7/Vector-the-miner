@@ -16,5 +16,5 @@ public class Element
 
 public enum ItemType
 {
-	Rope, Torch, Support
+	Rope, Torch, Support, Ladder
 }

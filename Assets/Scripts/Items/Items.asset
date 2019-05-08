@@ -15,7 +15,13 @@ MonoBehaviour:
   items:
   - type: 0
     sprite: {fileID: 21300000, guid: c3eb9d42f071adb4a8bc3bd3b7600c6b, type: 3}
+    icon: {fileID: 21300000, guid: c3eb9d42f071adb4a8bc3bd3b7600c6b, type: 3}
   - type: 1
     sprite: {fileID: 21300002, guid: c3eb9d42f071adb4a8bc3bd3b7600c6b, type: 3}
+    icon: {fileID: 21300002, guid: c3eb9d42f071adb4a8bc3bd3b7600c6b, type: 3}
   - type: 2
     sprite: {fileID: 21300004, guid: c3eb9d42f071adb4a8bc3bd3b7600c6b, type: 3}
+    icon: {fileID: 21300004, guid: c3eb9d42f071adb4a8bc3bd3b7600c6b, type: 3}
+  - type: 3
+    sprite: {fileID: 21300006, guid: c3eb9d42f071adb4a8bc3bd3b7600c6b, type: 3}
+    icon: {fileID: 21300006, guid: c3eb9d42f071adb4a8bc3bd3b7600c6b, type: 3}

@@ -7,25 +7,38 @@ public class BagUI : MonoBehaviour
 {
 	[SerializeField] Text capacity;
 
-	[SerializeField] List<OreSpritePair> icons;
-
+    [SerializeField] OresSettings oresSettings;
 	[SerializeField] List<CanvasOre> oresOnBar;
 
-	Color defaultColor;
+    Color defaultColor;
+    List<OreSpritePair> icons = new List<OreSpritePair>();
 	List<OreInBag> ores;
 	int listOffset;
 
 	private void Awake()
 	{
-		defaultColor = capacity.color;
+		defaultColor = Color.white;
 		listOffset = 0;
-	}
+    }
+
+    void SetupOreIcons()
+    {
+        icons = new List<OreSpritePair>();
+        foreach (OresSettings.OreGroup ore in oresSettings.ores)
+        {
+            OreSpritePair oreSprite = new OreSpritePair();
+            oreSprite.ore = ore.oreType;
+            oreSprite.sprite = ore.icon;
+            icons.Add(oreSprite);
+        }
+    }
 
 	public void UpdateBag(int spaceLeft, int maxCapacity, List<OreInBag> oreList)
 	{
 		UpdateOres(oreList);
 		UpdateCapacity(spaceLeft, maxCapacity);
 	}
+
 	public void UpdateBag(int spaceLeft, int maxCapacity)
 	{
 		UpdateOres();
@@ -38,13 +51,16 @@ public class BagUI : MonoBehaviour
 			capacity.color = Color.red;
 		else
 			capacity.color = defaultColor;
-
+        Debug.Log(defaultColor);
 		capacity.text = (maxCapacity - spaceLeft).ToString() + '/' + maxCapacity.ToString();
 	}
 
 	void UpdateOres(List<OreInBag> oreList)
 	{
-		this.ores = oreList;
+        if(icons.Count == 0)
+            SetupOreIcons();
+
+        this.ores = oreList;
 
 		for (int i = 0; i < oresOnBar.Count; i++)
 		{

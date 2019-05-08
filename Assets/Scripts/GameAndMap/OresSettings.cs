@@ -10,13 +10,12 @@ public class OresSettings : ScriptableObject
 	[System.Serializable]
 	public class OreGroup
 	{
-		[SerializeField]
-		string ore;
+		public string ore;
 		public Ore oreType;
+		public Sprite icon;
 		public int minOnMap, maxOnMap;
 		public OreSettings smallGroup, mediumGroup, largeGroup;
 	}
-
 }
 
 [System.Serializable]
