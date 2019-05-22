@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503b3a69cfc58f2499cd10d9ed04757e, type: 3}
+  m_Name: UpgradeBag
+  m_EditorClassIdentifier: 
+  tool: 1
+  levels:
+  - name: Bigger Bag
+    level: 1
+    icon: {fileID: 6677240483897062484, guid: d9fb151e45357324bbd2cb8348c875ab, type: 3}
+    cost: 10
+    tool: 1
+    oresToUpgrade:
+    - ore: 11
+      quantity: 0
+      maxQuantity: 15
+  - name: Huge Bag
+    level: 2
+    icon: {fileID: 6677240483897062484, guid: d9fb151e45357324bbd2cb8348c875ab, type: 3}
+    cost: 30
+    tool: 1
+    oresToUpgrade:
+    - ore: 1
+      quantity: 0
+      maxQuantity: 10
+    - ore: 11
+      quantity: 0
+      maxQuantity: 20

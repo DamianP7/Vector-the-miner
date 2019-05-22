@@ -5,16 +5,17 @@ using ScrollingList;
 
 public class GeneralStoreWindowController : ScrollingListButtons<ItemOnList, ItemInStore>
 {
-	[SerializeField] ItemsSettings itemsSettings;
+	ItemsSettings itemsSettings;
 	[SerializeField] GeneralStore generalStore;
 
 	private void Start()
 	{
-        listOfItems = itemsSettings.items;
-        UpdatePrices();
+		itemsSettings = generalStore.itemsSettings;
+		listOfItems = itemsSettings.items;
+		UpdatePrices();
 	}
 
-	
+
 	void UpdatePrices()
 	{
 		foreach (ItemInStore item in itemSlots)

@@ -84,6 +84,7 @@ public class PlayerController
 
             case Action.DigAndRope:
 
+                // TODO: przenieś działania na linie do budynku - dostęp do niego przez MapManagera
                 TileMap myTile = GetMyTile();
                 Rope rope = myTile.GetElement(ItemType.Rope) as Rope;
                 rope.length--;

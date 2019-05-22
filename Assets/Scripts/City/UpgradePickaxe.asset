@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503b3a69cfc58f2499cd10d9ed04757e, type: 3}
+  m_Name: UpgradePickaxe
+  m_EditorClassIdentifier: 
+  tool: 0
+  levels:
+  - name: Better Pickaxe
+    level: 1
+    icon: {fileID: 2724429144307423913, guid: ce3a10250b6923743b8da07fa1485f4b, type: 3}
+    cost: 50
+    tool: 0
+    oresToUpgrade:
+    - ore: 1
+      quantity: 0
+      maxQuantity: 5
+  - name: Gold Pickaxe
+    level: 2
+    icon: {fileID: 17786476723668823, guid: ce3a10250b6923743b8da07fa1485f4b, type: 3}
+    cost: 100
+    tool: 0
+    oresToUpgrade:
+    - ore: 1
+      quantity: 0
+      maxQuantity: 15
+    - ore: 11
+      quantity: 0
+      maxQuantity: 30

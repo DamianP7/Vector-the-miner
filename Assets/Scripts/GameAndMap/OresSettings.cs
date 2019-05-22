@@ -7,6 +7,11 @@ public class OresSettings : ScriptableObject
 {
 	public List<OreGroup> ores;
 
+	public Sprite GetSprite(Ore ore)
+	{
+		return ores.Find(x => x.oreType == ore).icon;
+	}
+
 	[System.Serializable]
 	public class OreGroup
 	{

@@ -5,11 +5,11 @@
 	using UnityEngine;
 	using UnityEngine.UI;
 
-    /// <summary>
-    /// Lista, ktora moze byc przewijana.
-    /// </summary>
-    /// <typeparam name="ItemType">Klasa, w ktorej liscie sa przechowywane dane przedmiotow</typeparam>
-    /// <typeparam name="SlotType">Klasa slotu, ktory jest wyswietlany na liscie</typeparam>
+	/// <summary>
+	/// Lista, ktora moze byc przewijana.
+	/// </summary>
+	/// <typeparam name="ItemType">Klasa, w ktorej liscie sa przechowywane dane przedmiotow</typeparam>
+	/// <typeparam name="SlotType">Klasa slotu, ktory jest wyswietlany na liscie</typeparam>
 	public abstract class ScrollingListButtons<ItemType, SlotType> : MonoBehaviour
 	{
 		public List<ItemType> listOfItems;

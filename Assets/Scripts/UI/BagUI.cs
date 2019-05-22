@@ -51,7 +51,6 @@ public class BagUI : MonoBehaviour
 			capacity.color = Color.red;
 		else
 			capacity.color = defaultColor;
-        Debug.Log(defaultColor);
 		capacity.text = (maxCapacity - spaceLeft).ToString() + '/' + maxCapacity.ToString();
 	}
 

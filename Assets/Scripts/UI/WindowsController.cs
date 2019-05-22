@@ -31,6 +31,7 @@
 		[Header("Shop windows")]
 		public Window oreSoreWindow;
 		public Window generalStoreWindow;
+		public Window warehouseWindow;
 
 		private Window openedWindow;
 
@@ -57,7 +58,7 @@
 			{
 				openedWindow.HideWindow();
 				openedWindow = null;
-				InputManager.Instance.StartMovement(); 
+				InputManager.Instance.StartMovement();
 			}
 		}
 

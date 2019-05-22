@@ -23,6 +23,18 @@ public class Player : MonoBehaviour
     }
     #endregion
 
+    /* TODO
+     * Rekurencyjna funkcja w TilesOnMap do sprawdzania czy pod tilesem jest ziemia,
+     * jeśli tak to nie uruchamia funkcji znowu tylko zwraca wytrzymałość
+     * jeśli nie to uruchamia funkcję ze zmniejszonym licznikiem (ktory jest
+     * graniczną wytrzymałością) dla tilesa obok i tak do skończenia licznika lub znalezienia
+     * tilesa z ziemią pod nim. W tilesie który wywołał funkcję jako pierwszy sprawdzane jest
+     * zwrócona wytrzymałość. Jeśli jest równa 0 to wali sie, jeśli równa 1 to pojawiają sie particle
+     * z walącą sie ziemią (może dla 2 rzadkie particle).
+     * 
+     * Do tilesa trzeba dodać pole do którego będzie zapisywana wartość z rekurencji.
+     * 
+     */
 
     [Header("Variables")]
     [SerializeField] int maxBagCapacity;
@@ -43,6 +55,7 @@ public class Player : MonoBehaviour
     public PlayerStats stats;
     public PlayerController controller;
     public PlayerMovement movement;
+	public PlayerEquipment equipment;
 
     [SerializeField] float timeToNextMove;
     public bool canMove = true;
@@ -71,6 +84,7 @@ public class Player : MonoBehaviour
         bag = new PlayerBag(bagUI, maxBagCapacity);
         inventory = new PlayerInventory(inventoryUI);
         movement = new PlayerMovement(playerAnimations);
+		equipment = new PlayerEquipment();
     }
 
     internal void Coroutine(IEnumerator enumerable)
