@@ -39,7 +39,7 @@ public class Warehouse : Building
 		foreach (Upgrades upgrade in upgrades)
 		{
 			Tool tool = upgrade.tool;
-			int level = playerEquipment.GetToolLevel(tool);
+			int level = playerEquipment.GetToolLevel(tool) + 1;
 			upgradesList.Add(tool, upgrade.GetUpgradeForLevel(level));
 		}
 
@@ -48,7 +48,7 @@ public class Warehouse : Building
 
 	void UpdateUpgrade(Tool tool)
 	{
-		int level = playerEquipment.GetToolLevel(tool);
+		int level = playerEquipment.GetToolLevel(tool) + 1;
 		currentUpgrades[tool] = upgrades.Find(x => x.tool == tool).GetUpgradeForLevel(level);
 	}
 

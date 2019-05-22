@@ -110,4 +110,11 @@ public class PlayerBag
 		this.ores = ores;
 		//TOOD: count left space
 	}
+
+	public void UpgradeBag(int newMaxCapacity)
+	{
+		spaceLeft += newMaxCapacity - maxCapacity;
+		maxCapacity = newMaxCapacity;
+		UpdateBag();
+	}
 }

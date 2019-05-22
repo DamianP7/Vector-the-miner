@@ -9,6 +9,6 @@ public class UpgradePickaxe : Upgrades
 
 	public int GetPowerOnLevel(int level)
 	{
-		return power[level];
+		return power[level - 1];
 	}
 }

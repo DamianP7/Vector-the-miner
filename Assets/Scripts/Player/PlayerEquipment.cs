@@ -5,13 +5,23 @@ using UnityEngine;
 public class PlayerEquipment
 {
 	Dictionary<Tool, int> levelsOfTools;
+	UpgradeBag upgradeBag;
+	UpgradeHelmet upgradeHelmet;
+	UpgradePickaxe upgradePickaxe;
 
-	public PlayerEquipment()
+	public PlayerEquipment(UpgradeBag upgradeBag, UpgradeHelmet upgradeHelmet, UpgradePickaxe upgradePickaxe)
 	{
+		this.upgradeBag = upgradeBag;
+		this.upgradeHelmet = upgradeHelmet;
+		this.upgradePickaxe = upgradePickaxe;
+
 		levelsOfTools = new Dictionary<Tool, int>();
-		levelsOfTools.Add(Tool.Bag, 1);
-		levelsOfTools.Add(Tool.Helmet, 1);
-		levelsOfTools.Add(Tool.Pickaxe, 1);
+		levelsOfTools.Add(Tool.Bag, 0);
+		UpgradeTool(Tool.Bag);
+		levelsOfTools.Add(Tool.Helmet, 0);
+		UpgradeTool(Tool.Helmet);
+		levelsOfTools.Add(Tool.Pickaxe, 0);
+		UpgradeTool(Tool.Pickaxe);
 	}
 
 	public int GetToolLevel(Tool tool)
@@ -23,11 +33,14 @@ public class PlayerEquipment
 	{
 		levelsOfTools[tool]++;
 
+		int level = levelsOfTools[tool];
+
 		switch (tool)
 		{
 			case Tool.Pickaxe:
 				break;
 			case Tool.Bag:
+				Player.Instance.bag.UpgradeBag(upgradeBag.GetCapacityOnLevel(level));
 				break;
 			case Tool.Helmet:
 				break;

@@ -9,6 +9,6 @@ public class UpgradeBag : Upgrades
 
 	public int GetCapacityOnLevel(int level)
 	{
-		return capacity[level];
+		return capacity[level - 1];
 	}
 }

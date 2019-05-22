@@ -7860,6 +7860,9 @@ MonoBehaviour:
   cashText: {fileID: 410129058}
   batteryText: {fileID: 993974837}
   batteryBar: {fileID: 1502667360}
+  upgradeBag: {fileID: 11400000, guid: 0c6f5ff9da9bdc1469c5ceebf496a1c6, type: 2}
+  upgradeHelmet: {fileID: 11400000, guid: 4fdf8d50453be1840afdf0dbbea3e9f8, type: 2}
+  upgradePickaxe: {fileID: 11400000, guid: 6fff34606cde4484298a2cb7e8aac6f3, type: 2}
   playerAnimations: {fileID: 1105426847}
   energyCosts: {fileID: 11400000, guid: 5d4c9b2cf3649574db3ab54a38771a06, type: 2}
   timeToNextMove: 0.25
@@ -9852,8 +9855,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingText: Warehouse
   upgrades:
-  - {fileID: 11400000, guid: d5420d082f8f07d438cedbea6ee1c18b, type: 2}
-  - {fileID: 11400000, guid: e38b8a6e1655fd34a92638503830657d, type: 2}
+  - {fileID: 11400000, guid: 0c6f5ff9da9bdc1469c5ceebf496a1c6, type: 2}
+  - {fileID: 11400000, guid: 6fff34606cde4484298a2cb7e8aac6f3, type: 2}
 --- !u!212 &1300152170
 SpriteRenderer:
   m_ObjectHideFlags: 0

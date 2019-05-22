@@ -91,6 +91,7 @@ public class ItemToUpgrade : MonoBehaviour
 
 	public void UpgradeTool()
 	{
+		Player.Instance.stats.Cash -= itemLevel.cost;
 		SetupItem(warehouse.UpgradeTool(tool));
 	}
 }

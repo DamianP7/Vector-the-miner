@@ -39,6 +39,6 @@ MonoBehaviour:
       quantity: 0
       maxQuantity: 10
     - ore: 11
-      quantity: 5
+      quantity: 0
       maxQuantity: 20
   capacity: 1e0000003200000050000000

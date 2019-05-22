@@ -46,6 +46,11 @@ public class Player : MonoBehaviour
     [SerializeField] Text batteryText;
     [SerializeField] RectTransform batteryBar;
 
+	[Header("Upgrades")]
+	[SerializeField] UpgradeBag upgradeBag;
+	[SerializeField] UpgradeHelmet upgradeHelmet;
+	[SerializeField] UpgradePickaxe upgradePickaxe;
+
     [Header("Misc.")]
     [SerializeField] PlayerAnimations playerAnimations; // TODO: jeszcze nie wiem jak to zrobić. MYŚL!!
     [SerializeField] EnergyCosts energyCosts; // TODO: jeszcze nie wiem jak to zrobić. MYŚL!!
@@ -84,7 +89,7 @@ public class Player : MonoBehaviour
         bag = new PlayerBag(bagUI, maxBagCapacity);
         inventory = new PlayerInventory(inventoryUI);
         movement = new PlayerMovement(playerAnimations);
-		equipment = new PlayerEquipment();
+		equipment = new PlayerEquipment(upgradeBag, upgradeHelmet, upgradePickaxe);
     }
 
     internal void Coroutine(IEnumerator enumerable)

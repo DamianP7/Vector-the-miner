@@ -10,8 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fa09e49da6a1af49860e695aeb7c7c8, type: 3}
-  m_Name: UpgradePickaxe 1
+  m_Name: UpgradePickaxe
   m_EditorClassIdentifier: 
   tool: 0
-  levels: []
-  power: 
+  levels:
+  - name: Pickaxe
+    level: 1
+    icon: {fileID: 6498891532138818622, guid: ce3a10250b6923743b8da07fa1485f4b, type: 3}
+    cost: 0
+    tool: 0
+    oresToUpgrade: []
+  - name: Silver Pickaxe
+    level: 2
+    icon: {fileID: 4148921757903692327, guid: ce3a10250b6923743b8da07fa1485f4b, type: 3}
+    cost: 30
+    tool: 0
+    oresToUpgrade:
+    - ore: 1
+      quantity: 0
+      maxQuantity: 15
+  - name: Gold Pickaxe
+    level: 3
+    icon: {fileID: 6570268489712156326, guid: ce3a10250b6923743b8da07fa1485f4b, type: 3}
+    cost: 100
+    tool: 0
+    oresToUpgrade:
+    - ore: 11
+      quantity: 0
+      maxQuantity: 10
+    - ore: 1
+      quantity: 0
+      maxQuantity: 30
+  power: 010000000200000003000000

@@ -9,6 +9,6 @@ public class UpgradeHelmet : Upgrades
 
 	public int GetCapacityOnLevel(int level)
 	{
-		return batteryDurability[level];
+		return batteryDurability[level - 1];
 	}
 }
