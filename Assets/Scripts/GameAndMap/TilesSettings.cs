@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu()]
+[CreateAssetMenu(menuName = "Settings/Tiles Settings")]
 public class TilesSettings : ScriptableObject
 {
 	public List<TileSett> tiles;

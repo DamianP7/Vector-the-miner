@@ -169,7 +169,7 @@ public class MapManager : MonoBehaviour
 
 	private void SetupPlayer()
 	{
-		Player.Instance.bag.AddOre(Ore.Coal,30);	// TODO: temp
+		Player.Instance.bag.AddOre(Ore.Coal, 30);   // TODO: temp
 		Player.Instance.controller.xPos = mapSizeX / 2;
 		Player.Instance.controller.yPos = 0;
 	}

@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu()]
+[CreateAssetMenu(menuName = "Prices/Items Prices")]
 public class ItemsPrices : ScriptableObject
 {
-    public List<ItemDescription> itemsPrices;
+	public List<ItemDescription> itemsPrices;
 
-    [System.Serializable]
-    public class ItemDescription
-    {
-        public ItemType item;
-        public int price;
-    }
+	[System.Serializable]
+	public class ItemDescription
+	{
+		public ItemType item;
+		public int price;
+	}
 }

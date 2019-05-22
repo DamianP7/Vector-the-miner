@@ -151,8 +151,8 @@ public class MapGenerator
 		for (int i = 0; i < dirs.Count; i++)
 		{
 			rand = ore.groupSize; //Random.Range(minGroupSize, ore.groupSize + 1);
-			//if (rand == minGroupSize) minGroupSize = minGroupSize == 0 ? minGroupSize : minGroupSize - 1;
-			//else minGroupSize = minGroupSize < ore.groupSize ? minGroupSize + 1 : minGroupSize;
+								  //if (rand == minGroupSize) minGroupSize = minGroupSize == 0 ? minGroupSize : minGroupSize - 1;
+								  //else minGroupSize = minGroupSize < ore.groupSize ? minGroupSize + 1 : minGroupSize;
 
 			if (dirs[i] == 0)
 			{

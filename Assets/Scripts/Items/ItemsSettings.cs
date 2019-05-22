@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu()]
+[CreateAssetMenu(menuName = "Settings/Items Settings")]
 public class ItemsSettings : ScriptableObject
 {
 	public List<ItemOnList> items;

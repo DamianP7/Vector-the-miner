@@ -9,13 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 503b3a69cfc58f2499cd10d9ed04757e, type: 3}
+  m_Script: {fileID: 11500000, guid: ed203580d4b16984aa31f3d80b15550a, type: 3}
   m_Name: UpgradeBag
   m_EditorClassIdentifier: 
   tool: 1
   levels:
-  - name: Bigger Bag
+  - name: Bag
     level: 1
+    icon: {fileID: 6677240483897062484, guid: d9fb151e45357324bbd2cb8348c875ab, type: 3}
+    cost: 0
+    tool: 1
+    oresToUpgrade: []
+  - name: Bigger Bag
+    level: 2
     icon: {fileID: 6677240483897062484, guid: d9fb151e45357324bbd2cb8348c875ab, type: 3}
     cost: 10
     tool: 1
@@ -24,7 +30,7 @@ MonoBehaviour:
       quantity: 0
       maxQuantity: 15
   - name: Huge Bag
-    level: 2
+    level: 3
     icon: {fileID: 6677240483897062484, guid: d9fb151e45357324bbd2cb8348c875ab, type: 3}
     cost: 30
     tool: 1
@@ -33,5 +39,6 @@ MonoBehaviour:
       quantity: 0
       maxQuantity: 10
     - ore: 11
-      quantity: 0
+      quantity: 5
       maxQuantity: 20
+  capacity: 1e0000003200000050000000

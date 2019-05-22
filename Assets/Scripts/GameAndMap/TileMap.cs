@@ -37,7 +37,7 @@ public class TileMap : MonoBehaviour
 			spriteRenderer.sprite = tile.tileSprites[spriteNumber];
 		else
 		{
-			if(tileType != TileType.Empty)
+			if (tileType != TileType.Empty)
 				Debug.LogError("Too big spriteNumber (" + transform.position + ": " + spriteNumber);
 		}
 	}
@@ -88,7 +88,7 @@ public class TileMap : MonoBehaviour
 		RefreshElements();
 	}
 
-	public void FallDown()	// colapse?
+	public void FallDown()  // colapse?
 	{
 
 	}
@@ -125,16 +125,16 @@ public class TileMap : MonoBehaviour
 			return null;
 	}
 
-    public bool CheckElement(ItemType type)
-    {
-        if (elementsOnTile == null)
-            return false;
-        Element element = elementsOnTile.Find(x => x.type == type);
-        if (element != null)
-            return true;
-        else
-            return false;
-    }
+	public bool CheckElement(ItemType type)
+	{
+		if (elementsOnTile == null)
+			return false;
+		Element element = elementsOnTile.Find(x => x.type == type);
+		if (element != null)
+			return true;
+		else
+			return false;
+	}
 
 }
 

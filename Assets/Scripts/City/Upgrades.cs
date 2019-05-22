@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu()]
 public class Upgrades : ScriptableObject
 {
-    public Tool tool;
-    public List<Upgrade> levels;
+	public Tool tool;
+	public List<Upgrade> levels;
 
 	public Upgrade GetUpgradeForLevel(int level)
 	{
@@ -17,27 +16,27 @@ public class Upgrades : ScriptableObject
 [System.Serializable]
 public class Upgrade
 {
-    public string name;
-    public int level;
-    public Sprite icon;
-    public int cost;
+	public string name;
+	public int level;
+	public Sprite icon;
+	public int cost;
 	//TODO: Custom editor -> hide in inspector
 	public Tool tool;
 	public List<UpgradeCost> oresToUpgrade;
 
-    [System.Serializable]
-    public class UpgradeCost
-    {
-        public Ore ore;
+	[System.Serializable]
+	public class UpgradeCost
+	{
+		public Ore ore;
 		//[HideInInspector]
-        public int quantity;
+		public int quantity;
 		public int maxQuantity;
-    }
+	}
 }
 
 public enum Tool
 {
-    Pickaxe,
-    Bag,
-    Helmet,
+	Pickaxe,
+	Bag,
+	Helmet,
 }

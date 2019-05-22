@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class ItemInBag : MonoBehaviour
 {
-	public ItemType item; 
+	public ItemType item;
 	public int quantity;
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu()]
+[CreateAssetMenu(menuName = "Settings/Ores Settings")]
 public class OresSettings : ScriptableObject
 {
 	public List<OreGroup> ores;

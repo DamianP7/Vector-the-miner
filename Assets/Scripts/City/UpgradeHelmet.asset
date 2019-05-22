@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fa09e49da6a1af49860e695aeb7c7c8, type: 3}
-  m_Name: UpgradePickaxe 1
+  m_Script: {fileID: 11500000, guid: 48ea8ae5608067544aff0d1cb897b2dc, type: 3}
+  m_Name: UpgradeHelmet
   m_EditorClassIdentifier: 
   tool: 0
   levels: []
-  power: 
+  batteryDurability: 

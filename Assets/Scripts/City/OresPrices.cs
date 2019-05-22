@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu()]
+[CreateAssetMenu(menuName = "Prices/Ores Prices")]
 public class OresPrices : ScriptableObject
 {
 	public List<OreIntPair> oresPrices;
