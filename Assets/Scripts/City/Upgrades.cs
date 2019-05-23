@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Upgrades : ScriptableObject
 {
-	public Tool tool;
-	public List<Upgrade> levels;
+	public Tool tool = Tool.Bag;
+	public List<Upgrade> levels = new List<Upgrade>();
 
 	public Upgrade GetUpgradeForLevel(int level)
 	{
@@ -16,21 +16,20 @@ public class Upgrades : ScriptableObject
 [System.Serializable]
 public class Upgrade
 {
-	public string name;
-	public int level;
+	public string name = "NewUpgrade";
+	public int level = 0;
 	public Sprite icon;
-	public int cost;
-	//TODO: Custom editor -> hide in inspector
-	public Tool tool;
-	public List<UpgradeCost> oresToUpgrade;
+	public int cost = 0;
+	public Tool tool = Tool.Bag;
+	public List<UpgradeCost> oresToUpgrade = new List<UpgradeCost>();
 
 	[System.Serializable]
 	public class UpgradeCost
 	{
-		public Ore ore;
+		public Ore ore = Ore.Coal;
 		//[HideInInspector]
-		public int quantity;
-		public int maxQuantity;
+		public int quantity = 0;
+		public int maxQuantity = 0;
 	}
 }
 

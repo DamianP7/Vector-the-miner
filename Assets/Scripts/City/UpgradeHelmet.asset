@@ -12,6 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48ea8ae5608067544aff0d1cb897b2dc, type: 3}
   m_Name: UpgradeHelmet
   m_EditorClassIdentifier: 
-  tool: 0
-  levels: []
-  batteryDurability: 
+  tool: 2
+  levels:
+  - name: Helmet
+    level: 1
+    icon: {fileID: 9046257975181182209, guid: d9fb151e45357324bbd2cb8348c875ab, type: 3}
+    cost: 0
+    tool: 2
+    oresToUpgrade: []
+  - name: Better Helmet
+    level: 2
+    icon: {fileID: 9046257975181182209, guid: d9fb151e45357324bbd2cb8348c875ab, type: 3}
+    cost: 50
+    tool: 2
+    oresToUpgrade:
+    - ore: 11
+      quantity: 0
+      maxQuantity: 10
+    - ore: 1
+      quantity: 0
+      maxQuantity: 10
+  - name: Super Helmet
+    level: 3
+    icon: {fileID: 9046257975181182209, guid: d9fb151e45357324bbd2cb8348c875ab, type: 3}
+    cost: 100
+    tool: 2
+    oresToUpgrade:
+    - ore: 11
+      quantity: 0
+      maxQuantity: 50
+    - ore: 1
+      quantity: 0
+      maxQuantity: 25
+  batteryDurability: 0a000000190000003200000000000000

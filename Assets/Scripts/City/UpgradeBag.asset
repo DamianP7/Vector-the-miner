@@ -28,17 +28,17 @@ MonoBehaviour:
     oresToUpgrade:
     - ore: 11
       quantity: 0
-      maxQuantity: 15
+      maxQuantity: 10
   - name: Huge Bag
     level: 3
     icon: {fileID: 6677240483897062484, guid: d9fb151e45357324bbd2cb8348c875ab, type: 3}
-    cost: 30
+    cost: 50
     tool: 1
     oresToUpgrade:
+    - ore: 11
+      quantity: 0
+      maxQuantity: 15
     - ore: 1
       quantity: 0
       maxQuantity: 10
-    - ore: 11
-      quantity: 0
-      maxQuantity: 20
-  capacity: 1e0000003200000050000000
+  capacity: 1e000000320000005000000000000000000000000000000000000000

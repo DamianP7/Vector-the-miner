@@ -31,7 +31,7 @@ MonoBehaviour:
       maxQuantity: 15
   - name: Gold Pickaxe
     level: 3
-    icon: {fileID: 6570268489712156326, guid: ce3a10250b6923743b8da07fa1485f4b, type: 3}
+    icon: {fileID: 17786476723668823, guid: ce3a10250b6923743b8da07fa1485f4b, type: 3}
     cost: 100
     tool: 0
     oresToUpgrade:
