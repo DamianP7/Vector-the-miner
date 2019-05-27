@@ -39,15 +39,12 @@ public class ItemToUpgrade : MonoBehaviour
 
 	public void SetupItem(Upgrade upgrade)
 	{
-		if (itemLevel.level != upgrade.level)
-		{
-			itemLevel = upgrade;
+		itemLevel = upgrade;
 
-			tool = itemLevel.tool;
-			itemName.text = itemLevel.name;
-			itemIcon.sprite = itemLevel.icon;
-			Cost = itemLevel.cost;
-		}
+		tool = itemLevel.tool;
+		itemName.text = itemLevel.name;
+		itemIcon.sprite = itemLevel.icon;
+		Cost = itemLevel.cost;
 
 		int index = 0;
 		for (; index < itemLevel.oresToUpgrade.Count; index++)
