@@ -18,6 +18,6 @@ MonoBehaviour:
   - item: 3
     price: 10
   - item: 2
-    price: 10
+    price: 15
   - item: 0
-    price: 500
+    price: 5
