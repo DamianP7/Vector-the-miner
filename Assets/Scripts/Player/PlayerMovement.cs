@@ -20,35 +20,27 @@ public class PlayerMovement
         switch (dir)
 		{
 			case Direction.Down:
-				animations.GoDown();
 				position = new Vector3(position.x, position.y - tileSize);
 				break;
 			case Direction.DownLeft:
-				animations.GoLeft();
 				position = new Vector3(position.x - tileSize, position.y - tileSize);
 				break;
 			case Direction.Left:
-				animations.GoLeft();
 				position = new Vector3(position.x - tileSize, position.y);
 				break;
 			case Direction.UpLeft:
-				animations.GoLeft();
 				position = new Vector3(position.x - tileSize, position.y + tileSize);
 				break;
 			case Direction.Up:
-				animations.GoUp();
 				position = new Vector3(position.x, position.y + tileSize);
 				break;
 			case Direction.UpRight:
-				animations.GoRight();
 				position = new Vector3(position.x + tileSize, position.y + tileSize);
 				break;
 			case Direction.Right:
-				animations.GoRight();
 				position = new Vector3(position.x + tileSize, position.y);
 				break;
 			case Direction.DownRight:
-				animations.GoRight();
 				position = new Vector3(position.x + tileSize, position.y - tileSize);
 				break;
 		}

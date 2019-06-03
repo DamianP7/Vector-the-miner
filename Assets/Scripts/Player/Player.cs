@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
     public PlayerController controller;
     public PlayerMovement movement;
 	public PlayerEquipment equipment;
+	public PlayerAnimations animations;
 
     [SerializeField] float timeToNextMove;
     public bool canMove = true;

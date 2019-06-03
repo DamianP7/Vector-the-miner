@@ -107,6 +107,8 @@ public class PlayerController
     {
         if (playerStats.DoAction(action))
         {
+			Debug.Log("Played animation: " + action.ToString() + " in direction " + dir.ToString());
+			Player.Instance.animations.PlayAnimation(dir, action);
             Player.Instance.movement.MoveTransformInDirecton(dir, 1);
             MovePos(dir); // zakończenie ruchu i update pozycji gracza na siatce
         }
