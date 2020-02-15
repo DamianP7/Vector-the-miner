@@ -19,7 +19,7 @@ public class PlayerController
             return;
 
         Action action = DoMove(dir);
-        Debug.Log(action.ToString());
+        //Debug.Log(action.ToString());
 
         if (action == Action.Nothing)
         {
@@ -107,7 +107,7 @@ public class PlayerController
     {
         if (playerStats.DoAction(action))
         {
-			Debug.Log("Played animation: " + action.ToString() + " in direction " + dir.ToString());
+			//Debug.Log("Played animation: " + action.ToString() + " in direction " + dir.ToString());
 			Player.Instance.animations.PlayAnimation(dir, action);
             Player.Instance.movement.MoveTransformInDirecton(dir, 1);
             MovePos(dir); // zakończenie ruchu i update pozycji gracza na siatce

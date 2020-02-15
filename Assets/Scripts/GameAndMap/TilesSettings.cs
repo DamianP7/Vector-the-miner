@@ -70,6 +70,7 @@ public class TilesSettings : ScriptableObject
 		public TileType tileType;
 		public Ore ore;
 		public float hardness;
+		public int stability;
 		public Sprite[] tileSprites;
 	}
 }

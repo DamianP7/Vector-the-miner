@@ -11,10 +11,31 @@ public class TileMap : MonoBehaviour
 	[SerializeField] TextMesh text;
 	public int spriteNumber;
 	public float hardness;
+	public int stability;
+	int leftStability, rightStability;
 	public TileType tileType = TileType.Ground;
 	public Ore ore = Ore.Ground;
 	public int oreAmount = 0;
 	public List<Element> elementsOnTile;
+
+	public bool IsStable
+	{
+		get
+		{
+			if (leftStability == stability || rightStability == stability)
+				return true;
+			else
+				return false;
+		}
+	}
+
+	public void CheckStability()
+	{
+		if(rightStability + leftStability <= 0)
+		{
+			MapManager.Instance.Callapse(transform.position);
+		}
+	}
 
 	private void Start()
 	{
@@ -33,6 +54,7 @@ public class TileMap : MonoBehaviour
 		}
 
 		hardness = tile.hardness;
+		stability = tile.stability;
 		if (spriteNumber < tile.tileSprites.Length)
 			spriteRenderer.sprite = tile.tileSprites[spriteNumber];
 		else
@@ -40,6 +62,9 @@ public class TileMap : MonoBehaviour
 			if (tileType != TileType.Empty)
 				Debug.LogError("Too big spriteNumber (" + transform.position + ": " + spriteNumber);
 		}
+		MapManager.Instance.RefreshStability(transform.position);
+		text.text = (leftStability + rightStability).ToString();
+		text.color = Color.red;
 	}
 
 	public void RefreshElements()
@@ -88,9 +113,11 @@ public class TileMap : MonoBehaviour
 		RefreshElements();
 	}
 
-	public void FallDown()  // colapse?
+	public void Collapse(TileType type)
 	{
-
+		tileType = type;
+		ore = Ore.Ground;
+		RefreshTile();
 	}
 
 	public bool PlaceObject(Element element)
@@ -134,6 +161,31 @@ public class TileMap : MonoBehaviour
 			return true;
 		else
 			return false;
+	}
+
+	public void SetStability(int toDecrease, Direction direction)
+	{
+		if (direction == Direction.Left)
+			leftStability = stability - toDecrease;
+		else if (direction == Direction.Right)
+			rightStability = stability - toDecrease;
+	}
+
+	public int GetStability(Direction direction = Direction.Center)
+	{
+		if (direction == Direction.Center)
+		{
+			if (leftStability > rightStability)
+				return leftStability;
+			else
+				return rightStability;
+		}
+		else if (direction == Direction.Left)
+			return leftStability;
+		else if (direction == Direction.Right)
+			return rightStability;
+		else
+			return rightStability;
 	}
 
 }

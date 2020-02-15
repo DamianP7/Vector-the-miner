@@ -322,7 +322,6 @@ public class MapManager : MonoBehaviour
 
 	public TileMap GetTileAtPosition(Vector2 position)
 	{
-
 		float y = (position.y - tileSize / 2) / tileSize;
 		int yPos = Mathf.FloorToInt(y) * -1;
 
@@ -342,6 +341,27 @@ public class MapManager : MonoBehaviour
 		}
 	}
 
+	public Vector2Int GetPositionOfTileOnPosition(Vector2 position)
+	{
+		float y = (position.y - tileSize / 2) / tileSize;
+		int yPos = Mathf.FloorToInt(y) * -1;
+
+		float x = position.x / tileSize;
+		x += Mathf.FloorToInt(mapSizeX / 2);
+		int xPos = Mathf.FloorToInt(x);
+		Debug.Log(xPos + ", " + yPos);
+
+		if (yPos < 0)
+		{
+			return Vector2Int.zero;
+		}
+		else
+		{
+			xPos++; yPos--; // Magic code
+			return new Vector2Int(xPos, yPos);
+		}
+	}
+
 	public bool PlaceItem(Vector2 position, Element item)
 	{
 		TileMap tile = GetTileAtPosition(position);
@@ -350,6 +370,102 @@ public class MapManager : MonoBehaviour
 		else
 		{
 			return tile.PlaceObject(item);
+		}
+	}
+
+	public void Callapse(Vector2 position)
+	{
+		Vector2Int tilePos = GetPositionOfTileOnPosition(position);
+		tiles[tilePos.x, tilePos.y + 1].Collapse(tiles[tilePos.x, tilePos.y].tileType);
+	}
+
+	public void RefreshStability(Vector2 movedTile)
+	{
+		Vector2Int tilePos = GetPositionOfTileOnPosition(movedTile);
+		tilePos.y--;    // i need here tile on tile which got interacted
+		if (tilePos.y <= 2) // 2 - level of surface
+			return;
+
+		List<TileMap> tilesToDecrease = new List<TileMap>();
+
+		if (tiles[tilePos.x, tilePos.y + 1].tileType == TileType.Hole &&
+			!tiles[tilePos.x, tilePos.y + 1].CheckElement(ItemType.Support))
+		{
+			// LEFT SIDE
+			tilesToDecrease.Add(tiles[tilePos.x, tilePos.y]);
+			int xPos = tilePos.x - 1;
+			while (!tiles[tilePos.x, tilePos.y].IsStable)
+			{
+				tilesToDecrease.Add(tiles[xPos, tilePos.y]);
+				xPos--;
+			}
+			int lastIndex = tilesToDecrease.Count - 1;
+
+			// RIGHT SIDE
+			xPos = tilePos.x + 1;
+			while (!tiles[tilePos.x, tilePos.y].IsStable)
+			{
+				tilesToDecrease.Add(tiles[xPos, tilePos.y]);
+				xPos++;
+			}
+
+			int toDecrease = 1;
+			for (int i = 0; i < tilesToDecrease.Count; i++)
+			{
+				tilesToDecrease[i].SetStability(toDecrease, Direction.Left);
+				if (tilesToDecrease.Count - (i + 1) > i)
+				{
+					tilesToDecrease[tilesToDecrease.Count - (i + 1)].SetStability(toDecrease, Direction.Right);
+				}
+				else
+					break;
+				toDecrease++;
+			}
+		}
+		else
+		{
+			// LEFT SIDE
+			int xPos = tilePos.x - 1;
+			while (!tiles[tilePos.x, tilePos.y].IsStable)
+			{
+				tilesToDecrease.Add(tiles[xPos, tilePos.y]);
+				xPos--;
+			}
+
+			int toDecrease = 1;
+			for (int i = 0; i < tilesToDecrease.Count; i++)
+			{
+				tilesToDecrease[i].SetStability(toDecrease, Direction.Left);
+				if (tilesToDecrease.Count - (i + 1) > i)
+				{
+					tilesToDecrease[tilesToDecrease.Count - (i + 1)].SetStability(toDecrease, Direction.Right);
+				}
+				else
+					break;
+				toDecrease++;
+			}
+			tilesToDecrease = new List<TileMap>();
+
+			// RIGHT SIDE
+			xPos = tilePos.x + 1;
+			while (!tiles[tilePos.x, tilePos.y].IsStable)
+			{
+				tilesToDecrease.Add(tiles[xPos, tilePos.y]);
+				xPos++;
+			}
+
+			toDecrease = 1;
+			for (int i = 0; i < tilesToDecrease.Count; i++)
+			{
+				tilesToDecrease[i].SetStability(toDecrease, Direction.Left);
+				if (tilesToDecrease.Count - (i + 1) > i)
+				{
+					tilesToDecrease[tilesToDecrease.Count - (i + 1)].SetStability(toDecrease, Direction.Right);
+				}
+				else
+					break;
+				toDecrease++;
+			}
 		}
 	}
 }
